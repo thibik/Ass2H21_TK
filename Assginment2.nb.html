@@ -215,6 +215,17 @@ pre code {
 
 
 <!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3B0aW9uKHNjaXBlbiA9IDk5OSlcblxuYGBgIn0= -->
+<pre class="r"><code>option(scipen = 999)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gb3B0aW9uKHNjaXBlbiA9IDk5OSkgOiBjb3VsZCBub3QgZmluZCBmdW5jdGlvbiBcIm9wdGlvblwiXG4ifQ== -->
+<pre><code>Error in option(scipen = 999) : could not find function &quot;option&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="kort-innledning" class="section level1">
 <h1>Kort innledning</h1>
 </div>
@@ -234,25 +245,71 @@ høyde &lt;- heights</code></pre>
 </div>
 <div id="beskrivende-statestikk" class="section level1">
 <h1>Beskrivende statestikk</h1>
+<p>Se på ta</p>
 </div>
 <div id="eda" class="section level1">
 <h1>EDA</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <div id="lag-et-histogram-av-variablen-income" class="section level2">
 <h2>Lag et histogram av variablen <em>income</em></h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2dwbG90KGRhdGEgPSBob3lkZSwgbWFwcGluZyA9IGFlcyhpbmNvbWUpKSArXG4gIGdlb21faGlzdG9ncmFtKClcbmBgYCJ9 -->
+<pre class="r"><code>ggplot(data = hoyde, mapping = aes(income)) +
+  geom_histogram()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN0YXRfYmluKClgIHVzaW5nIGBiaW5zID1cbjMwYC4gUGljayBiZXR0ZXIgdmFsdWUgd2l0aFxuYGJpbndpZHRoYC5cbiJ9 -->
+<pre><code>`stat_bin()` using `bins =
+30`. Pick better value with
+`binwidth`.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjI0Ny4yMTg4LCJ3aWR0aCI6NDAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="forklaringen-på-utliggerne-langt-til-høyre" class="section level2">
 <h2>Forklaringen på utliggerne langt til høyre</h2>
 </div>
 <div id="personer-uten-inkludert-i-datasettet" class="section level2">
 <h2>Personer uten inkludert i datasettet?</h2>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtKGhveWRlJGluY29tZSA9PSAwKVxuXG5gYGAifQ== -->
+<pre class="r"><code>sum(hoyde$income == 0)
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE3NDBcbiJ9 -->
+<pre><code>[1] 1740</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 </div>
 <div id="regresjonsanalyse" class="section level1">
 <h1>Regresjonsanalyse</h1>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShsbShpbmNvbWUgfiBob3lkZSwgZGF0YSA9IGhveWRlKSxcbiAgICAgICAgZmlsdGVyKGluY29tZSA+PSAyJSkpXG5cbmBgYCJ9 -->
+<pre class="r"><code>summary(lm(income ~ hoyde, data = hoyde),
+        filter(income &gt;= 2%))
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IHVuZXhwZWN0ZWQgaW5wdXQgaW46XG5cInN1bW1hcnkobG0oaW5jb21lIH4gaG95ZGUsIGRhdGEgPSBob3lkZSksXG4gICAgICAgIGZpbHRlcihpbmNvbWUgPj0gMiUpKVwiXG4ifQ== -->
+<pre><code>Error: unexpected input in:
+&quot;summary(lm(income ~ hoyde, data = hoyde),
+        filter(income &gt;= 2%))&quot;</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVyIGRldCBow7h5ZGUgc29tIGJlc3RlbW1lciBpbm50ZWt0PyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KbGFuZzogbm8tTkINCi0tLQ0KDQojIEtvcnQgaW5ubGVkbmluZyANCg0KIyBLb3J0IGxpdHRlcmF0dXJnamVubm9tZ2FuZyBww6UgZW4gc2lkZS4NCg0KIyBBbmFseXNlDQoNCmBgYHtyfQ0KZGF0YSgiaGVpZ2h0cyIsIHBhY2thZ2UgPSAibW9kZWxyIikNCmhveWRlIDwtIGhlaWdodHMNCmBgYA0KDQojIEJlc2tyaXZlbmRlIHN0YXRlc3Rpa2sNCg0KIyBFREENCg0KIyMgTGFnIGV0IGhpc3RvZ3JhbSBhdiB2YXJpYWJsZW4gKmluY29tZSoNCg0KIyMgRm9ya2xhcmluZ2VuIHDDpSB1dGxpZ2dlcm5lIGxhbmd0IHRpbCBow7h5cmUNCg0KIyMgUGVyc29uZXIgdXRlbiBpbmtsdWRlcnQgaSBkYXRhc2V0dGV0PyANCg0KIyBSZWdyZXNqb25zYW5hbHlzZQ0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVyIGRldCBow7h5ZGUgc29tIGJlc3RlbW1lciBpbm50ZWt0PyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KbGFuZzogbm8tTkINCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkoZ2dwbG90MikNCmxpYnJhcnkodGlueXRleCkNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShtb2RlbHIpDQpsaWJyYXJ5KGdncHVicikNCm9wdGlvbnMoc2NpcGVuID0gOTk5KQ0KYGBgDQoNCiMgS29ydCBpbm5sZWRuaW5nIA0KDQojIEtvcnQgbGl0dGVyYXR1cmdqZW5ub21nYW5nIHDDpSBlbiBzaWRlLg0KDQojIEFuYWx5c2UNCg0KYGBge3J9DQpkYXRhKCJoZWlnaHRzIiwgcGFja2FnZSA9ICJtb2RlbHIiKQ0KaG95ZGUgPC0gaGVpZ2h0cw0KYGBgDQoNCiMgQmVza3JpdmVuZGUgc3RhdGVzdGlraw0KU2UgcMOlIHRhDQoNCiMgRURBDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBob3lkZSkNCmBgYA0KDQoNCiMjIExhZyBldCBoaXN0b2dyYW0gYXYgdmFyaWFibGVuICppbmNvbWUqDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBob3lkZSwgbWFwcGluZyA9IGFlcyhpbmNvbWUpKSArDQogIGdlb21faGlzdG9ncmFtKCkNCmBgYA0KDQojIyBGb3JrbGFyaW5nZW4gcMOlIHV0bGlnZ2VybmUgbGFuZ3QgdGlsIGjDuHlyZQ0KDQojIyBQZXJzb25lciB1dGVuIGlua2x1ZGVydCBpIGRhdGFzZXR0ZXQ/IA0KDQpgYGB7cn0NCnN1bShob3lkZSRpbmNvbWUgPT0gMCkNCmBgYA0KDQoNCiMgUmVncmVzam9uc2FuYWx5c2UNCg0KYGBge3J9DQpzdW1tYXJ5KGxtKGluY29tZSB+IGhveWRlLCBkYXRhID0gaG95ZGUpLA0KICAgICAgICBmaWx0ZXIoaW5jb21lID49IDIlKSkNCmBgYA0KDQo=</div>
 
 
 

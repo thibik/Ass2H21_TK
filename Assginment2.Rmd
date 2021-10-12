@@ -4,6 +4,15 @@ output: html_notebook
 lang: no-NB
 ---
 
+```{r}
+library(ggplot2)
+library(tinytex)
+library(tidyverse)
+library(modelr)
+library(ggpubr)
+options(scipen = 999)
+```
+
 # Kort innledning 
 
 # Kort litteraturgjennomgang på en side.
@@ -16,14 +25,35 @@ hoyde <- heights
 ```
 
 # Beskrivende statestikk
+Se på ta
 
 # EDA
 
+```{r}
+ggplot(data = hoyde)
+```
+
+
 ## Lag et histogram av variablen *income*
+
+```{r}
+ggplot(data = hoyde, mapping = aes(income)) +
+  geom_histogram()
+```
 
 ## Forklaringen på utliggerne langt til høyre
 
 ## Personer uten inkludert i datasettet? 
 
+```{r}
+sum(hoyde$income == 0)
+```
+
+
 # Regresjonsanalyse
+
+```{r}
+summary(lm(income ~ hoyde, data = hoyde),
+        filter(income >= 2%))
+```
 
