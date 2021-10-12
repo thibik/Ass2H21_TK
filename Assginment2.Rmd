@@ -1,0 +1,29 @@
+---
+title: "Er det høyde som bestemmer inntekt?"
+output: html_notebook
+lang: no-NB
+---
+
+# Kort innledning 
+
+# Kort litteraturgjennomgang på en side.
+
+# Analyse
+
+```{r}
+data("heights", package = "modelr")
+hoyde <- heights
+```
+
+# Beskrivende statestikk
+
+# EDA
+
+## Lag et histogram av variablen *income*
+
+## Forklaringen på utliggerne langt til høyre
+
+## Personer uten inkludert i datasettet? 
+
+# Regresjonsanalyse
+
