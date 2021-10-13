@@ -57,3 +57,10 @@ hoyde <- heights
 summary(lm(income ~ height, data = heights))
 ```
 
+```{r}
+attach(heights)
+summary(income)
+histogram(income)
+```
+
+
