@@ -53,7 +53,7 @@ sum(hoyde$income == 0)
 # Regresjonsanalyse
 
 ```{r}
-summary(lm(income ~ hoyde, data = hoyde),
-        filter(income >= 2%))
+hoyde <- heights
+summary(lm(income ~ height, data = heights))
 ```
 
