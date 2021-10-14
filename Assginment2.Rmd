@@ -19,17 +19,18 @@ options(scipen = 999)
 
 # Analyse
 
-```{r}
+```{r, eval=FALSe}
 data("heights", package = "modelr")
 hoyde <- heights
 ```
 
 # Beskrivende statestikk
-Se på ta
+Se på dette senere. 
 
 # EDA
 
 ```{r}
+#Slett dette senere?
 ggplot(data = hoyde)
 ```
 
@@ -53,14 +54,25 @@ sum(hoyde$income == 0)
 # Regresjonsanalyse
 
 ```{r}
-hoyde <- heights
-summary(lm(income ~ height, data = heights))
+library(tidyverse)
+View(hoyde)
 ```
 
+```{r}
+hoyde <- heights
+summary(lm(income ~ height, data = heights))
+filter(heights, income %in% c(1:174030))
+``` 
+
+# Test, kan sikkert bare slettes 
 ```{r}
 attach(heights)
 summary(income)
 histogram(income)
 ```
+
+# Lag to nye variabler
+
+
 
 
