@@ -74,5 +74,16 @@ histogram(income)
 # Lag to nye variabler
 
 
+```{r}
+height_cm <- height(inch) %>%
+  select(height, weight) %>% 
+  mutate(
+    
+  )
+  
+```
 
+
+
+ 
 
