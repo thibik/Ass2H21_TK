@@ -19,8 +19,7 @@ options(scipen = 999)
 
 # Analyse
 
-```{r, eval=FALSe}
-data("heights", package = "modelr")
+```{r Hoyde}
 hoyde <- heights
 ```
 
@@ -38,7 +37,7 @@ ggplot(data = hoyde)
 ## Lag et histogram av variablen *income*
 
 ```{r}
-ggplot(data = hoyde, mapping = aes(income)) +
+ggplot(data = hoyde, aes(income)) +
   geom_histogram()
 ```
 
@@ -54,15 +53,78 @@ sum(hoyde$income == 0)
 # Regresjonsanalyse
 
 ```{r}
-library(tidyverse)
-View(hoyde)
+hoyde <- heights
+```
+
+
+```{r}
+hoyde <- hoyde %>% 
+  mutate(inntekt = income * 8.42,
+         hoyde_cm = height * 2.54,
+         vekt_kg = weight * 0.454,
+         BMI = (vekt_kg/hoyde_cm)^2)
+```
+
+
+```{r}
+ggplot(data = hoyde, aes(x = inntekt)) + 
+  geom_histogram()
+```
+
+
+```{r}
+hoyde_begr <- hoyde %>% 
+  filter(inntekt < 1500000,
+         inntekt > 1)
 ```
 
 ```{r}
-hoyde <- heights
-summary(lm(income ~ height, data = heights))
-filter(heights, income %in% c(1:174030))
-``` 
+ggplot(data = hoyde_begr, aes(x = inntekt)) + 
+  geom_histogram ()
+```
+
+```{r}
+#slett senere
+sum(hoyde$income == 0)
+sum(hoyde$inntekt < 1500000)
+7006-5123
+```
+```{r}
+lm(inntekt ~ hoyde_cm, data = hoyde) %>%  
+  summary()
+```
+
+```{r}
+lm(inntekt ~ hoyde_cm, data = hoyde) %>% 
+  summary()
+```
+
+
+```{r}
+ -1337837.4 + (9884.6 *173)
+-1337837.4 + (9884.6 *161)
+```
+```{r}
+lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %>% 
+  summary()
+```
+
+
+```{r}
+-697374.7 + (6735.7*173) + (-691.5*70)
+```
+```{r}
+hoyde <- hoyde %>% 
+mutate(
+  married = factor(
+    case_when(
+      marital == 'married' ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+  )
+```
+
 
 # Test, kan sikkert bare slettes 
 ```{r}
@@ -80,7 +142,6 @@ height_cm <- height(inch) %>%
   mutate(
     
   )
-  
 ```
 
 
