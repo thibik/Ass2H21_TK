@@ -56,12 +56,19 @@ sum(hoyde$income == 0)
 hoyde <- heights
 ```
 
-## Redusert datasett
+## Redusert datasett 
+
+```{r}
+hoyde <- hoyde %>% 
+   mutate(inntekt = income * 8.42)
+
+```
+
 
 ```{r}
 hoyde_begr <- hoyde %>%  
-  filter(income < 1500000,
-         income > 1)
+  filter(inntekt < 1500000,
+         inntekt > 1)
 ```
 
 
@@ -69,23 +76,31 @@ hoyde_begr <- hoyde %>%
 
 ```{r}
 hoyde <- hoyde %>% 
-  mutate(inntekt = income * 8.42,
-         hoyde_cm = height * 2.54,
+  mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
 ```
 
 
+## Forenklet utgave av variabelen "Martial"
+
+```{r}
+hoyde <- hoyde %>% 
+mutate(
+  married = factor(
+    case_when(
+      marital == 'married' ~ TRUE,
+      TRUE ~ FALSE
+      )
+    )
+  )
+```
+
+## minst 6 
+
 ```{r}
 ggplot(data = hoyde, aes(x = income)) + 
   geom_histogram()
-```
-
-
-```{r}
-hoyde_begr <- hoyde %>% 
-  filter(income < 1500000,
-         income > 1)
 ```
 
 ```{r}
@@ -93,12 +108,6 @@ ggplot(data = hoyde_begr, aes(x = income)) +
   geom_histogram ()
 ```
 
-```{r}
-#slett senere, for å forstå det bedre
-sum(hoyde$income == 0)
-sum(hoyde$income < 1500000)
-7006-5123
-```
 
 ```{r}
 lm(income ~ hoyde_cm, data = hoyde) %>%  
@@ -124,19 +133,7 @@ lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %>%
 ```{r}
 -697374.7 + (6735.7*173) + (-691.5*70)
 ```
-```{r}
-hoyde <- hoyde %>% 
-mutate(
-  married = factor(
-    case_when(
-      marital == 'married' ~ TRUE,
-      TRUE ~ FALSE
-      )
-    )
-  )
-```
 
-## minst 6 
 
 
 # Test, kan sikkert bare slettes 
