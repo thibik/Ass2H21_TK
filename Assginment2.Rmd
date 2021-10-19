@@ -199,11 +199,12 @@ cor(x = heights_eks$sex, y = heights_eks$sex * heights_eks$income, use = 'pairwi
 ```{r}
 library(MASS)
 library(hypothesisr)
+library(survey)
 ```
 
 
 ```{r}
-linearHypothesis(mdl_1, c("sex = 0", "sex:income = 0"))
+lht(mdl_1, c("sex = 0", "sex:income = 0"))
 ```
 
 
