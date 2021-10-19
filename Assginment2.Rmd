@@ -56,6 +56,17 @@ sum(hoyde$income == 0)
 hoyde <- heights
 ```
 
+## Redusert datasett
+
+```{r}
+# Kan slettes, skrevet lengre oppe
+hoyde_begr <- hoyde %>% 
+  filter(inntekt < 1500000,
+         inntekt > 1)
+```
+
+
+## Lag to nye variabler + lag ny variabel bmi
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -74,23 +85,24 @@ ggplot(data = hoyde, aes(x = inntekt)) +
 
 ```{r}
 hoyde_begr <- hoyde %>% 
-  filter(inntekt < 1500000,
-         inntekt > 1)
+  filter(income < 1500000,
+         income > 1)
 ```
 
 ```{r}
-ggplot(data = hoyde_begr, aes(x = inntekt)) + 
+ggplot(data = hoyde_begr, aes(x = income)) + 
   geom_histogram ()
 ```
 
 ```{r}
-#slett senere
+#slett senere, for å forstå det bedre
 sum(hoyde$income == 0)
-sum(hoyde$inntekt < 1500000)
+sum(hoyde$income < 1500000)
 7006-5123
 ```
+
 ```{r}
-lm(inntekt ~ hoyde_cm, data = hoyde) %>%  
+lm(income ~ hoyde_cm, data = hoyde) %>%  
   summary()
 ```
 
@@ -125,6 +137,8 @@ mutate(
   )
 ```
 
+## minst 6 
+
 
 # Test, kan sikkert bare slettes 
 ```{r}
@@ -132,19 +146,6 @@ attach(heights)
 summary(income)
 histogram(income)
 ```
-
-# Lag to nye variabler
-
-
-```{r}
-height_cm <- height(inch) %>%
-  select(height, weight) %>% 
-  mutate(
-    
-  )
-```
-
-
 
  
 
