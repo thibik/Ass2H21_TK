@@ -192,8 +192,18 @@ mdl_1 <- lm(mdl_1, data = heights_eks)
 summary(mdl_1)
 ```
 
+```{r}
+cor(x = heights_eks$sex, y = heights_eks$sex * heights_eks$income, use = 'pairwise.complete.obs')
+```
+
+```{r}
+library(MASS)
+library(hypothesisr)
+```
+
 
 ```{r}
 linearHypothesis(mdl_1, c("sex = 0", "sex:income = 0"))
 ```
+
 
