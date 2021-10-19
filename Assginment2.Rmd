@@ -59,10 +59,9 @@ hoyde <- heights
 ## Redusert datasett
 
 ```{r}
-# Kan slettes, skrevet lengre oppe
-hoyde_begr <- hoyde %>% 
-  filter(inntekt < 1500000,
-         inntekt > 1)
+hoyde_begr <- hoyde %>%  
+  filter(income < 1500000,
+         income > 1)
 ```
 
 
