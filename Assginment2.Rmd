@@ -144,4 +144,24 @@ histogram(income)
 ```
 
  
+ 
+ # test modeller 
+ 
+```{r}
+library(huxtable)
+```
+ 
+```{r}
+summary(hoyde_begr)
+```
+
+```{r}
+lm1 <-lm (income ~ height, data = hoyde_begr)
+lm2 <-lm (income ~ height + weight, data = hoyde_begr)
+lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
+```
+
+```{r}
+summary(lm3)
+```
 
