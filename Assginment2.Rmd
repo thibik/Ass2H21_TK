@@ -165,3 +165,35 @@ lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
 summary(lm3)
 ```
 
+```{r}
+huxreg(lm1, lm2, lm3)
+```
+
+```{r}
+huxreg(
+lm1, lm2, lm3,
+error_format = "[{statistic}]",
+note = "{stars}. T statistics in brackets."
+)
+```
+
+```{r}
+heights_eks <- hoyde_begr
+```
+
+# spør om denne  
+
+```{r}
+mdl_1 <- "log(income) ~ sex*height + weight + I(weight^2) + age + I(age^2)"
+mdl_1 <- lm(mdl_1, data = heights_eks)
+```
+
+```{r}
+summary(mdl_1)
+```
+
+
+```{r}
+linearHypothesis(mdl_1, c("sex = 0", "sex:income = 0"))
+```
+
