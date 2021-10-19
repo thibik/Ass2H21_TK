@@ -43,7 +43,7 @@ ggplot(data = hoyde, aes(income)) +
 
 ## Forklaringen på utliggerne langt til høyre
 
-## Personer uten inkludert i datasettet? 
+## Personer uten inntekt inkludert i datasettet? 
 
 ```{r}
 sum(hoyde$income == 0)
@@ -77,7 +77,7 @@ hoyde <- hoyde %>%
 
 
 ```{r}
-ggplot(data = hoyde, aes(x = inntekt)) + 
+ggplot(data = hoyde, aes(x = income)) + 
   geom_histogram()
 ```
 
