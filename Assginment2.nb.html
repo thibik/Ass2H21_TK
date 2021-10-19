@@ -217,37 +217,13 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeSh0aW55dGV4KVxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeSh0aW55dGV4KVxubGlicmFyeSh0aWR5dmVyc2UpXG5saWJyYXJ5KG1vZGVscilcbmxpYnJhcnkoZ2dwdWJyKVxub3B0aW9ucyhzY2lwZW4gPSA5OTkpXG5gYGAifQ== -->
 <pre class="r"><code>library(ggplot2)
 library(tinytex)
-library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuLS0gQXR0YWNoaW5nIHBhY2thZ2VzIC0tLSB0aWR5dmVyc2UgMS4zLjEgLS1cbnYgdGliYmxlICAzLjEuMyAgICAgdiBkcGx5ciAgIDEuMC43XG52IHRpZHlyICAgMS4xLjMgICAgIHYgc3RyaW5nciAxLjQuMFxudiByZWFkciAgIDIuMC4xICAgICB2IGZvcmNhdHMgMC41LjFcbnYgcHVycnIgICAwLjMuNCAgICAgXG4tLSBDb25mbGljdHMgLS0tLS0tIHRpZHl2ZXJzZV9jb25mbGljdHMoKSAtLVxueCBkcGx5cjo6ZmlsdGVyKCkgbWFza3Mgc3RhdHM6OmZpbHRlcigpXG54IGRwbHlyOjpsYWcoKSAgICBtYXNrcyBzdGF0czo6bGFnKClcbnggZHBseXI6OnNlbGVjdCgpIG1hc2tzIE1BU1M6OnNlbGVjdCgpXG4ifQ== -->
-<pre><code>Registered S3 methods overwritten by &#39;dbplyr&#39;:
-  method         from
-  print.tbl_lazy     
-  print.tbl_sql      
--- Attaching packages --- tidyverse 1.3.1 --
-v tibble  3.1.3     v dplyr   1.0.7
-v tidyr   1.1.3     v stringr 1.4.0
-v readr   2.0.1     v forcats 0.5.1
-v purrr   0.3.4     
--- Conflicts ------ tidyverse_conflicts() --
-x dplyr::filter() masks stats::filter()
-x dplyr::lag()    masks stats::lag()
-x dplyr::select() masks MASS::select()</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShtb2RlbHIpXG5saWJyYXJ5KGdncHVicilcbmBgYCJ9 -->
-<pre class="r"><code>library(modelr)
-library(ggpubr)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2Qgb3ZlcndyaXR0ZW4gYnkgJ2RhdGEudGFibGUnOlxuICBtZXRob2QgICAgICAgICAgIGZyb21cbiAgcHJpbnQuZGF0YS50YWJsZSAgICAgXG4ifQ== -->
-<pre><code>Registered S3 method overwritten by &#39;data.table&#39;:
-  method           from
-  print.data.table     </code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxub3B0aW9ucyhzY2lwZW4gPSA5OTkpXG5gYGAifQ== -->
-<pre class="r"><code>options(scipen = 999)</code></pre>
+library(tidyverse)
+library(modelr)
+library(ggpubr)
+options(scipen = 999)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -353,8 +329,8 @@ better value with `binwidth`.</code></pre>
 <h2>Lag to nye variabler + lag ny variabel bmi</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaG95ZGUgPC0gaG95ZGUgJT4lIFxuICBtdXRhdGUoaG95ZGVfY20gPSBoZWlnaHQgKiAyLjU0LFxuICAgICAgICAgdmVrdF9rZyA9IHdlaWdodCAqIDAuNDU0LFxuICAgICAgICAgQk1JID0gKHZla3Rfa2cvaG95ZGVfY20pXjIpXG5gYGAifQ== -->
-<pre class="r"><code>hoyde &lt;- hoyde %&gt;% 
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaG95ZGVfYmVnciA8LSBob3lkZSAlPiUgXG4gIG11dGF0ZShob3lkZV9jbSA9IGhlaWdodCAqIDIuNTQsXG4gICAgICAgICB2ZWt0X2tnID0gd2VpZ2h0ICogMC40NTQsXG4gICAgICAgICBCTUkgPSAodmVrdF9rZy9ob3lkZV9jbSleMilcbmBgYCJ9 -->
+<pre class="r"><code>hoyde_begr &lt;- hoyde %&gt;% 
   mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)</code></pre>
@@ -408,7 +384,7 @@ better value with `binwidth`.</code></pre>
 better value with `binwidth`.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-plot-begin eyJoZWlnaHQiOjI0Ny4yMTg4LCJ3aWR0aCI6NDAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
-<p><img src="data:image/png;base64,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" /></p>
+<p><img src="data:image/png;base64,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" /></p>
 <!-- rnb-plot-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
@@ -418,89 +394,14 @@ better value with `binwidth`.</code></pre>
 <pre class="r"><code>lm(income ~ hoyde_cm, data = hoyde) %&gt;%  
   summary()</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGluY29tZSB+IGhveWRlX2NtLCBkYXRhID0gaG95ZGUpXG5cblJlc2lkdWFsczpcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tOTE1ODMgLTMxNTExIC0xMDg5MyAgMTQ4ODIgMzIwODI4IFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgdCB2YWx1ZVxuKEludGVyY2VwdCkgLTE1ODg4OC4wNiAgIDEwNzMzLjc1ICAtMTQuODBcbmhveWRlX2NtICAgICAgIDExNzMuOTQgICAgICA2Mi44NiAgIDE4LjY4XG4gICAgICAgICAgICAgICAgICAgICAgIFByKD58dHwpICAgIFxuKEludGVyY2VwdCkgPDAuMDAwMDAwMDAwMDAwMDAwMiAqKipcbmhveWRlX2NtICAgIDwwLjAwMDAwMDAwMDAwMDAwMDIgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICBcbiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmVxuICAwLjEg4oCYIOKAmSAxXG5cblJlc2lkdWFsIHN0YW5kYXJkIGVycm9yOiA1NDU1MCBvbiA3MDA0IGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wNDc0NCxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDQ3MyBcbkYtc3RhdGlzdGljOiAzNDguOCBvbiAxIGFuZCA3MDA0IERGLCAgcC12YWx1ZTogPCAwLjAwMDAwMDAwMDAwMDAwMDIyXG4ifQ== -->
-<pre><code>
-Call:
-lm(formula = income ~ hoyde_cm, data = hoyde)
-
-Residuals:
-   Min     1Q Median     3Q    Max 
--91583 -31511 -10893  14882 320828 
-
-Coefficients:
-              Estimate Std. Error t value
-(Intercept) -158888.06   10733.75  -14.80
-hoyde_cm       1173.94      62.86   18.68
-                       Pr(&gt;|t|)    
-(Intercept) &lt;0.0000000000000002 ***
-hoyde_cm    &lt;0.0000000000000002 ***
----
-Signif. codes:  
-  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’
-  0.1 ‘ ’ 1
-
-Residual standard error: 54550 on 7004 degrees of freedom
-Multiple R-squared:  0.04744,   Adjusted R-squared:  0.0473 
-F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaChzaW1wbGVFcnJvcihtc2csIGNhbGwpKSA6IFxuICBlcnJvciBpbiBldmFsdWF0aW5nIHRoZSBhcmd1bWVudCAnb2JqZWN0JyBpbiBzZWxlY3RpbmcgYSBtZXRob2QgZm9yIGZ1bmN0aW9uICdzdW1tYXJ5Jzogb2JqZWN0ICdob3lkZV9jbScgbm90IGZvdW5kXG4ifQ== -->
+<pre><code>Error in h(simpleError(msg, call)) : 
+  error in evaluating the argument &#39;object&#39; in selecting a method for function &#39;summary&#39;: object &#39;hoyde_cm&#39; not found</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0oaW5udGVrdCB+IGhveWRlX2NtLCBkYXRhID0gaG95ZGUpICU+JSBcbiAgc3VtbWFyeSgpXG5gYGAifQ== -->
-<pre class="r"><code>lm(inntekt ~ hoyde_cm, data = hoyde) %&gt;% 
-  summary()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGlubnRla3QgfiBob3lkZV9jbSwgZGF0YSA9IGhveWRlKVxuXG5SZXNpZHVhbHM6XG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tNzcxMTMzIC0yNjUzMjEgIC05MTcxOCAgMTI1MzA3IDI3MDEzNzIgXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB0IHZhbHVlXG4oSW50ZXJjZXB0KSAtMTMzNzgzNy40ICAgIDkwMzc4LjIgIC0xNC44MFxuaG95ZGVfY20gICAgICAgIDk4ODQuNiAgICAgIDUyOS4zICAgMTguNjhcbiAgICAgICAgICAgICAgICAgICAgICAgUHIoPnx0fCkgICAgXG4oSW50ZXJjZXB0KSA8MC4wMDAwMDAwMDAwMDAwMDAyICoqKlxuaG95ZGVfY20gICAgPDAuMDAwMDAwMDAwMDAwMDAwMiAqKipcbi0tLVxuU2lnbmlmLiBjb2RlczogIFxuICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZXG4gIDAuMSDigJgg4oCZIDFcblxuUmVzaWR1YWwgc3RhbmRhcmQgZXJyb3I6IDQ1OTMwMCBvbiA3MDA0IGRlZ3JlZXMgb2YgZnJlZWRvbVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wNDc0NCxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDQ3MyBcbkYtc3RhdGlzdGljOiAzNDguOCBvbiAxIGFuZCA3MDA0IERGLCAgcC12YWx1ZTogPCAwLjAwMDAwMDAwMDAwMDAwMDIyXG4ifQ== -->
-<pre><code>
-Call:
-lm(formula = inntekt ~ hoyde_cm, data = hoyde)
-
-Residuals:
-    Min      1Q  Median      3Q     Max 
--771133 -265321  -91718  125307 2701372 
-
-Coefficients:
-              Estimate Std. Error t value
-(Intercept) -1337837.4    90378.2  -14.80
-hoyde_cm        9884.6      529.3   18.68
-                       Pr(&gt;|t|)    
-(Intercept) &lt;0.0000000000000002 ***
-hoyde_cm    &lt;0.0000000000000002 ***
----
-Signif. codes:  
-  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’
-  0.1 ‘ ’ 1
-
-Residual standard error: 459300 on 7004 degrees of freedom
-Multiple R-squared:  0.04744,   Adjusted R-squared:  0.0473 
-F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIC0xMzM3ODM3LjQgKyAoOTg4NC42ICoxNzMpXG5gYGAifQ== -->
-<pre class="r"><code> -1337837.4 + (9884.6 *173)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM3MjE5OC40XG4ifQ== -->
-<pre><code>[1] 372198.4</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuLTEzMzc4MzcuNCArICg5ODg0LjYgKjE2MSlcbmBgYCJ9 -->
-<pre class="r"><code>-1337837.4 + (9884.6 *161)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI1MzU4My4yXG4ifQ== -->
-<pre><code>[1] 253583.2</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0oaW5udGVrdCB+IGhveWRlX2NtICsgdmVrdF9rZywgZGF0YSA9IGhveWRlX2JlZ3IpICU+JSBcbiAgc3VtbWFyeSgpXG5gYGAifQ== -->
-<pre class="r"><code>lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %&gt;% 
-  summary()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZXZhbChwcmVkdmFycywgZGF0YSwgZW52KSA6IG9iamVjdCAnaG95ZGVfY20nIG5vdCBmb3VuZFxuIn0= -->
-<pre><code>Error in eval(predvars, data, env) : object &#39;hoyde_cm&#39; not found</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -508,6 +409,49 @@ F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
+</div>
+<div id="spørre-om-hjelp" class="section level1">
+<h1>spørre om hjelp</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0oaW5udGVrdCB+IGhveWRlX2NtICsgdmVrdF9rZywgZGF0YSA9IGhveWRlX2JlZ3IpICU+JSBcbiAgc3VtbWFyeSgpXG5gYGAifQ== -->
+<pre class="r"><code>lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %&gt;% 
+  summary()</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGlubnRla3QgfiBob3lkZV9jbSArIHZla3Rfa2csIGRhdGEgPSBob3lkZV9iZWdyKVxuXG5SZXNpZHVhbHM6XG4gICAgTWluICAgICAgMVEgIE1lZGlhbiAgICAgIDNRICAgICBNYXggXG4tODMzNDc0IC0yNjAyOTEgIC05MDk4MiAgMTI1MTkwIDI3MTcyOTkgXG5cbkNvZWZmaWNpZW50czpcbiAgICAgICAgICAgICAgRXN0aW1hdGUgU3RkLiBFcnJvciB0IHZhbHVlXG4oSW50ZXJjZXB0KSAtMTQ1MDQzOS4zICAgIDkzNzUyLjYgLTE1LjQ3MVxuaG95ZGVfY20gICAgICAgMTEyOTMuNyAgICAgIDYwNC4xICAxOC42OTZcbnZla3Rfa2cgICAgICAgIC0xNDg4LjggICAgICAzMTAuNiAgLTQuNzk0XG4gICAgICAgICAgICAgICAgICAgICAgICBQcig+fHR8KSAgICBcbihJbnRlcmNlcHQpIDwgMC4wMDAwMDAwMDAwMDAwMDAyICoqKlxuaG95ZGVfY20gICAgPCAwLjAwMDAwMDAwMDAwMDAwMDIgKioqXG52ZWt0X2tnICAgICAgICAgICAgICAgMC4wMDAwMDE2NyAqKipcbi0tLVxuU2lnbmlmLiBjb2RlczogIFxuICAwIOKAmCoqKuKAmSAwLjAwMSDigJgqKuKAmSAwLjAxIOKAmCrigJkgMC4wNSDigJgu4oCZXG4gIDAuMSDigJgg4oCZIDFcblxuUmVzaWR1YWwgc3RhbmRhcmQgZXJyb3I6IDQ2MDgwMCBvbiA2OTA4IGRlZ3JlZXMgb2YgZnJlZWRvbVxuICAoOTUgb2JzZXJ2YXRpb25zIGRlbGV0ZWQgZHVlIHRvIG1pc3NpbmduZXNzKVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wNTA3NyxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDUwNSBcbkYtc3RhdGlzdGljOiAxODQuNyBvbiAyIGFuZCA2OTA4IERGLCAgcC12YWx1ZTogPCAwLjAwMDAwMDAwMDAwMDAwMDIyXG4ifQ== -->
+<pre><code>
+Call:
+lm(formula = inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-833474 -260291  -90982  125190 2717299 
+
+Coefficients:
+              Estimate Std. Error t value
+(Intercept) -1450439.3    93752.6 -15.471
+hoyde_cm       11293.7      604.1  18.696
+vekt_kg        -1488.8      310.6  -4.794
+                        Pr(&gt;|t|)    
+(Intercept) &lt; 0.0000000000000002 ***
+hoyde_cm    &lt; 0.0000000000000002 ***
+vekt_kg               0.00000167 ***
+---
+Signif. codes:  
+  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’
+  0.1 ‘ ’ 1
+
+Residual standard error: 460800 on 6908 degrees of freedom
+  (95 observations deleted due to missingness)
+Multiple R-squared:  0.05077,   Adjusted R-squared:  0.0505 
+F-statistic: 184.7 on 2 and 6908 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 </div>
 <div id="test-kan-sikkert-bare-slettes" class="section level1">
 <h1>Test, kan sikkert bare slettes</h1>
@@ -518,30 +462,141 @@ F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></
 <p># test modeller</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShodXh0YWJsZSlcbmBgYCJ9 -->
+<pre class="r"><code>library(huxtable)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZyBpbiByZWdpc3Rlcl9zM19tZXRob2QoXCJrbml0clwiLCBcImtuaXRfcHJpbnRcIikgOlxuICByZXN0YXJ0aW5nIGludGVycnVwdGVkIHByb21pc2UgZXZhbHVhdGlvblxuV2FybmluZyBpbiByZWdpc3Rlcl9zM19tZXRob2QoXCJrbml0clwiLCBcImtuaXRfcHJpbnRcIikgOlxuICBpbnRlcm5hbCBlcnJvciAtMyBpbiBSX2RlY29tcHJlc3MxXG5FcnJvcjogcGFja2FnZSBvciBuYW1lc3BhY2UgbG9hZCBmYWlsZWQgZm9yIOKAmGh1eHRhYmxl4oCZOlxuIC5vbkxvYWQgZmFpbGVkIGluIGxvYWROYW1lc3BhY2UoKSBmb3IgJ2h1eHRhYmxlJywgZGV0YWlsczpcbiAgY2FsbDogcmVnaXN0ZXJfczNfbWV0aG9kKFwia25pdHJcIiwgXCJrbml0X3ByaW50XCIpXG4gIGVycm9yOiBsYXp5LWxvYWQgZGF0YWJhc2UgJ0M6L1VzZXJzL3RoaWJpL09uZURyaXZlL0RvY3VtZW50cy9SL3dpbi1saWJyYXJ5LzQuMS9hc3NlcnR0aGF0L1IvYXNzZXJ0dGhhdC5yZGInIGlzIGNvcnJ1cHRcbiJ9 -->
+<pre><code>Warning in register_s3_method(&quot;knitr&quot;, &quot;knit_print&quot;) :
+  restarting interrupted promise evaluation
+Warning in register_s3_method(&quot;knitr&quot;, &quot;knit_print&quot;) :
+  internal error -3 in R_decompress1
+Error: package or namespace load failed for ‘huxtable’:
+ .onLoad failed in loadNamespace() for &#39;huxtable&#39;, details:
+  call: register_s3_method(&quot;knitr&quot;, &quot;knit_print&quot;)
+  error: lazy-load database &#39;C:/Users/thibi/OneDrive/Documents/R/win-library/4.1/assertthat/R/assertthat.rdb&#39; is corrupt</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShob3lkZV9iZWdyKVxuYGBgIn0= -->
+<pre class="r"><code>summary(hoyde_begr)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICBpbmNvbWUgICAgICAgICAgIGhlaWdodCAgICAgXG4gTWluLiAgIDogICAgNDUgICBNaW4uICAgOjUyLjAwICBcbiAxc3QgUXUuOiAyMzAwMCAgIDFzdCBRdS46NjQuMDAgIFxuIE1lZGlhbiA6IDQwMDAwICAgTWVkaWFuIDo2Ny4wMCAgXG4gTWVhbiAgIDogNDY3NTEgICBNZWFuICAgOjY3LjIyICBcbiAzcmQgUXUuOiA2MjAwMCAgIDNyZCBRdS46NzAuMDAgIFxuIE1heC4gICA6MTc4MDAwICAgTWF4LiAgIDo4MC4wMCAgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBcbiAgICAgd2VpZ2h0ICAgICAgICAgICBhZ2UgICAgICAgXG4gTWluLiAgIDogNzguMCAgIE1pbi4gICA6NDcuMDAgIFxuIDFzdCBRdS46MTU5LjAgICAxc3QgUXUuOjQ5LjAwICBcbiBNZWRpYW4gOjE4NS4wICAgTWVkaWFuIDo1MS4wMCAgXG4gTWVhbiAgIDoxODguNCAgIE1lYW4gICA6NTEuMjggIFxuIDNyZCBRdS46MjEyLjAgICAzcmQgUXUuOjUzLjAwICBcbiBNYXguICAgOjQ4MC4wICAgTWF4LiAgIDo1Ni4wMCAgXG4gTkEncyAgIDo2OSAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgbWFyaXRhbCAgICAgICAgIHNleCAgICAgIFxuIHNpbmdsZSAgIDogNjk5ICAgbWFsZSAgOjI1MjYgIFxuIG1hcnJpZWQgIDoyOTgzICAgZmVtYWxlOjI1OTcgIFxuIHNlcGFyYXRlZDogMjMzICAgICAgICAgICAgICAgIFxuIGRpdm9yY2VkIDoxMTAyICAgICAgICAgICAgICAgIFxuIHdpZG93ZWQgIDogMTA2ICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFxuICAgZWR1Y2F0aW9uICAgICAgICAgIGFmcXQgICAgICAgXG4gTWluLiAgIDogMS4wMCAgIE1pbi4gICA6ICAwLjAwICBcbiAxc3QgUXUuOjEyLjAwICAgMXN0IFF1LjogMTkuNTUgIFxuIE1lZGlhbiA6MTIuMDAgICBNZWRpYW4gOiA0MS43MSAgXG4gTWVhbiAgIDoxMy40OCAgIE1lYW4gICA6IDQ0LjQwICBcbiAzcmQgUXUuOjE2LjAwICAgM3JkIFF1LjogNjcuODkgIFxuIE1heC4gICA6MjAuMDAgICBNYXguICAgOjEwMC4wMCAgXG4gTkEncyAgIDoyICAgICAgIE5BJ3MgICA6MTg0ICAgICBcbiAgICBpbm50ZWt0ICAgICAgICAgXG4gTWluLiAgIDogICAgMzc4LjkgIFxuIDFzdCBRdS46IDE5MzY2MC4wICBcbiBNZWRpYW4gOiAzMzY4MDAuMCAgXG4gTWVhbiAgIDogMzkzNjQ2LjMgIFxuIDNyZCBRdS46IDUyMjA0MC4wICBcbiBNYXguICAgOjE0OTg3NjAuMCAgXG4gICAgICAgICAgICAgICAgICAgIFxuIn0= -->
+<pre><code>     income           height     
+ Min.   :    45   Min.   :52.00  
+ 1st Qu.: 23000   1st Qu.:64.00  
+ Median : 40000   Median :67.00  
+ Mean   : 46751   Mean   :67.22  
+ 3rd Qu.: 62000   3rd Qu.:70.00  
+ Max.   :178000   Max.   :80.00  
+                                 
+     weight           age       
+ Min.   : 78.0   Min.   :47.00  
+ 1st Qu.:159.0   1st Qu.:49.00  
+ Median :185.0   Median :51.00  
+ Mean   :188.4   Mean   :51.28  
+ 3rd Qu.:212.0   3rd Qu.:53.00  
+ Max.   :480.0   Max.   :56.00  
+ NA&#39;s   :69                     
+      marital         sex      
+ single   : 699   male  :2526  
+ married  :2983   female:2597  
+ separated: 233                
+ divorced :1102                
+ widowed  : 106                
+                               
+                               
+   education          afqt       
+ Min.   : 1.00   Min.   :  0.00  
+ 1st Qu.:12.00   1st Qu.: 19.55  
+ Median :12.00   Median : 41.71  
+ Mean   :13.48   Mean   : 44.40  
+ 3rd Qu.:16.00   3rd Qu.: 67.89  
+ Max.   :20.00   Max.   :100.00  
+ NA&#39;s   :2       NA&#39;s   :184     
+    inntekt         
+ Min.   :    378.9  
+ 1st Qu.: 193660.0  
+ Median : 336800.0  
+ Mean   : 393646.3  
+ 3rd Qu.: 522040.0  
+ Max.   :1498760.0  
+                    </code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubG0xIDwtbG0gKGluY29tZSB+IGhlaWdodCwgZGF0YSA9IGhveWRlX2JlZ3IpXG5sbTIgPC1sbSAoaW5jb21lIH4gaGVpZ2h0ICsgd2VpZ2h0LCBkYXRhID0gaG95ZGVfYmVncilcbmxtMyA8LWxtIChpbmNvbWUgfiBoZWlnaHQgKyB3ZWlnaHQgKyBhZ2UgKyBzZXgsIGRhdGEgPSAgaG95ZGVfYmVncilcbmBgYCJ9 -->
+<pre class="r"><code>lm1 &lt;-lm (income ~ height, data = hoyde_begr)
+lm2 &lt;-lm (income ~ height + weight, data = hoyde_begr)
+lm3 &lt;-lm (income ~ height + weight + age + sex, data =  hoyde_begr)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShsbTMpXG5gYGAifQ== -->
+<pre class="r"><code>summary(lm3)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5DYWxsOlxubG0oZm9ybXVsYSA9IGluY29tZSB+IGhlaWdodCArIHdlaWdodCArIGFnZSArIHNleCwgZGF0YSA9IGhveWRlX2JlZ3IpXG5cblJlc2lkdWFsczpcbiAgIE1pbiAgICAgMVEgTWVkaWFuICAgICAzUSAgICBNYXggXG4tNjI2NzAgLTIyMzE2ICAtNjUyNyAgMTU3MzQgMTM2NDA5IFxuXG5Db2VmZmljaWVudHM6XG4gICAgICAgICAgICAgIEVzdGltYXRlIFN0ZC4gRXJyb3IgdCB2YWx1ZVxuKEludGVyY2VwdCkgLTI1MDkyLjAxMyAgMTU1NzIuODQ4ICAtMS42MTFcbmhlaWdodCAgICAgICAgMTI1NS4yODQgICAgMTczLjcxOCAgIDcuMjI2XG53ZWlnaHQgICAgICAgICAtNDEuMDAwICAgICAxMi4zMTIgIC0zLjMzMFxuYWdlICAgICAgICAgICAgIC02LjM0NyAgICAyMDQuMzU2ICAtMC4wMzFcbnNleGZlbWFsZSAgICAtODkxNC4wMzIgICAxMzE4LjcwMSAgLTYuNzYwXG4gICAgICAgICAgICAgICAgICAgICBQcig+fHR8KSAgICBcbihJbnRlcmNlcHQpICAgICAgICAgIDAuMTA3MTg0ICAgIFxuaGVpZ2h0ICAgICAgMC4wMDAwMDAwMDAwMDA1NzIgKioqXG53ZWlnaHQgICAgICAgICAgICAgICAwLjAwMDg3NCAqKipcbmFnZSAgICAgICAgICAgICAgICAgIDAuOTc1MjI1ICAgIFxuc2V4ZmVtYWxlICAgMC4wMDAwMDAwMDAwMTUzOTIgKioqXG4tLS1cblNpZ25pZi4gY29kZXM6ICBcbiAgMCDigJgqKirigJkgMC4wMDEg4oCYKirigJkgMC4wMSDigJgq4oCZIDAuMDUg4oCYLuKAmVxuICAwLjEg4oCYIOKAmSAxXG5cblJlc2lkdWFsIHN0YW5kYXJkIGVycm9yOiAzMjM3MCBvbiA1MDQ5IGRlZ3JlZXMgb2YgZnJlZWRvbVxuICAoNjkgb2JzZXJ2YXRpb25zIGRlbGV0ZWQgZHVlIHRvIG1pc3NpbmduZXNzKVxuTXVsdGlwbGUgUi1zcXVhcmVkOiAgMC4wNTk1OSxcdEFkanVzdGVkIFItc3F1YXJlZDogIDAuMDU4ODQgXG5GLXN0YXRpc3RpYzogNzkuOTggb24gNCBhbmQgNTA0OSBERiwgIHAtdmFsdWU6IDwgMC4wMDAwMDAwMDAwMDAwMDAyMlxuIn0= -->
+<pre><code>
+Call:
+lm(formula = income ~ height + weight + age + sex, data = hoyde_begr)
+
+Residuals:
+   Min     1Q Median     3Q    Max 
+-62670 -22316  -6527  15734 136409 
+
+Coefficients:
+              Estimate Std. Error t value
+(Intercept) -25092.013  15572.848  -1.611
+height        1255.284    173.718   7.226
+weight         -41.000     12.312  -3.330
+age             -6.347    204.356  -0.031
+sexfemale    -8914.032   1318.701  -6.760
+                     Pr(&gt;|t|)    
+(Intercept)          0.107184    
+height      0.000000000000572 ***
+weight               0.000874 ***
+age                  0.975225    
+sexfemale   0.000000000015392 ***
+---
+Signif. codes:  
+  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’
+  0.1 ‘ ’ 1
+
+Residual standard error: 32370 on 5049 degrees of freedom
+  (69 observations deleted due to missingness)
+Multiple R-squared:  0.05959,   Adjusted R-squared:  0.05884 
+F-statistic: 79.98 on 4 and 5049 DF,  p-value: &lt; 0.00000000000000022</code></pre>
+<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHV4cmVnKGxtMSwgbG0yLCBsbTMpXG5gYGAifQ== -->
+<pre class="r"><code>huxreg(lm1, lm2, lm3)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaHV4cmVnKFxubG0xLCBsbTIsIGxtMyxcbmVycm9yX2Zvcm1hdCA9IFwiW3tzdGF0aXN0aWN9XVwiLFxubm90ZSA9IFwie3N0YXJzfS4gVCBzdGF0aXN0aWNzIGluIGJyYWNrZXRzLlwiXG4pXG5gYGAifQ== -->
+<pre class="r"><code>huxreg(
+lm1, lm2, lm3,
+error_format = &quot;[{statistic}]&quot;,
+note = &quot;{stars}. T statistics in brackets.&quot;
+)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaGVpZ2h0c19la3MgPC0gaG95ZGVfYmVnclxuYGBgIn0= -->
+<pre class="r"><code>heights_eks &lt;- hoyde_begr</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -549,10 +604,17 @@ F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></
 <h1>spør om denne</h1>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWRsXzEgPC0gXCJsb2coaW5jb21lKSB+IHNleCpoZWlnaHQgKyB3ZWlnaHQgKyBJKHdlaWdodF4yKSArIGFnZSArIEkoYWdlXjIpXCJcbm1kbF8xIDwtIGxtKG1kbF8xLCBkYXRhID0gaGVpZ2h0c19la3MpXG5gYGAifQ== -->
+<pre class="r"><code>mdl_1 &lt;- &quot;log(income) ~ sex*height + weight + I(weight^2) + age + I(age^2)&quot;
+mdl_1 &lt;- lm(mdl_1, data = heights_eks)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShtZGxfMSlcbmBgYCJ9 -->
+<pre class="r"><code>summary(mdl_1)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -560,16 +622,23 @@ F-statistic: 348.8 on 1 and 7004 DF,  p-value: &lt; 0.00000000000000022</code></
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29yKHggPSBoZWlnaHRzX2VrcyRzZXgsIHkgPSBoZWlnaHRzX2VrcyRzZXggKiBoZWlnaHRzX2VrcyRpbmNvbWUsIHVzZSA9ICdwYWlyd2lzZS5jb21wbGV0ZS5vYnMnKVxuYGBgIn0= -->
 <pre class="r"><code>cor(x = heights_eks$sex, y = heights_eks$sex * heights_eks$income, use = &#39;pairwise.complete.obs&#39;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gaXMuZGF0YS5mcmFtZSh5KSA6IG9iamVjdCAnaGVpZ2h0c19la3MnIG5vdCBmb3VuZFxuIn0= -->
-<pre><code>Error in is.data.frame(y) : object &#39;heights_eks&#39; not found</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShNQVNTKVxubGlicmFyeShoeXBvdGhlc2lzcilcbmxpYnJhcnkoc3VydmV5KVxuYGBgIn0= -->
-<pre class="r"><code>library(MASS)
-library(hypothesisr)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShNQVNTKVxuYGBgIn0= -->
+<pre class="r"><code>library(MASS)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYTUFTU+KAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmRwbHly4oCZOlxuXG4gICAgc2VsZWN0XG4ifQ== -->
+<pre><code>
+Attaching package: ‘MASS’
+
+The following object is masked from ‘package:dplyr’:
+
+    select</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShoeXBvdGhlc2lzcilcbmxpYnJhcnkoc3VydmV5KVxuYGBgIn0= -->
+<pre class="r"><code>library(hypothesisr)
 library(survey)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-output-begin eyJkYXRhIjoiTG9hZGluZyByZXF1aXJlZCBwYWNrYWdlOiBncmlkXG5Mb2FkaW5nIHJlcXVpcmVkIHBhY2thZ2U6IE1hdHJpeFxuXG5BdHRhY2hpbmcgcGFja2FnZTog4oCYTWF0cml44oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0cyBhcmUgbWFza2VkIGZyb20g4oCYcGFja2FnZTp0aWR5cuKAmTpcblxuICAgIGV4cGFuZCwgcGFjaywgdW5wYWNrXG5cbkxvYWRpbmcgcmVxdWlyZWQgcGFja2FnZTogc3Vydml2YWxcblxuQXR0YWNoaW5nIHBhY2thZ2U6IOKAmHN1cnZleeKAmVxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOmdyYXBoaWNz4oCZOlxuXG4gICAgZG90Y2hhcnRcbiJ9 -->
@@ -590,6 +659,9 @@ The following object is masked from ‘package:graphics’:
 
     dotchart</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShjYXIpXG5gYGAifQ== -->
+<pre class="r"><code>library(car)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -597,16 +669,15 @@ The following object is masked from ‘package:graphics’:
 <!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGh0KG1kbF8xLCBjKFwic2V4ID0gMFwiLCBcInNleDppbmNvbWUgPSAwXCIpKVxuYGBgIn0= -->
 <pre class="r"><code>lht(mdl_1, c(&quot;sex = 0&quot;, &quot;sex:income = 0&quot;))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gbGh0KG1kbF8xLCBjKFwic2V4ID0gMFwiLCBcInNleDppbmNvbWUgPSAwXCIpKSA6IFxuICBjb3VsZCBub3QgZmluZCBmdW5jdGlvbiBcImxodFwiXG4ifQ== -->
-<pre><code>Error in lht(mdl_1, c(&quot;sex = 0&quot;, &quot;sex:income = 0&quot;)) : 
-  could not find function &quot;lht&quot;</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6ICQgb3BlcmF0b3IgaXMgaW52YWxpZCBmb3IgYXRvbWljIHZlY3RvcnNcbiJ9 -->
+<pre><code>Error: $ operator is invalid for atomic vectors</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVyIGRldCBow7h5ZGUgc29tIGJlc3RlbW1lciBpbm50ZWt0PyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KbGFuZzogbm8tTkINCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkoZ2dwbG90MikNCmxpYnJhcnkodGlueXRleCkNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShtb2RlbHIpDQpsaWJyYXJ5KGdncHVicikNCm9wdGlvbnMoc2NpcGVuID0gOTk5KQ0KYGBgDQoNCiMgS29ydCBpbm5sZWRuaW5nIA0KDQojIEtvcnQgbGl0dGVyYXR1cmdqZW5ub21nYW5nIHDDpSBlbiBzaWRlLg0KDQojIEFuYWx5c2UNCg0KYGBge3IgSG95ZGV9DQpob3lkZSA8LSBoZWlnaHRzDQpgYGANCg0KIyBCZXNrcml2ZW5kZSBzdGF0ZXN0aWtrDQpTZSBww6UgZGV0dGUgc2VuZXJlLiANCg0KIyBFREENCg0KYGBge3J9DQojU2xldHQgZGV0dGUgc2VuZXJlPw0KZ2dwbG90KGRhdGEgPSBob3lkZSkNCmBgYA0KDQoNCiMjIExhZyBldCBoaXN0b2dyYW0gYXYgdmFyaWFibGVuICppbmNvbWUqDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBob3lkZSwgYWVzKGluY29tZSkpICsNCiAgZ2VvbV9oaXN0b2dyYW0oKQ0KYGBgDQoNCiMjIEZvcmtsYXJpbmdlbiBww6UgdXRsaWdnZXJuZSBsYW5ndCB0aWwgaMO4eXJlDQoNCiMjIFBlcnNvbmVyIHV0ZW4gaW5udGVrdCBpbmtsdWRlcnQgaSBkYXRhc2V0dGV0PyANCg0KYGBge3J9DQpzdW0oaG95ZGUkaW5jb21lID09IDApDQpgYGANCg0KDQojIFJlZ3Jlc2pvbnNhbmFseXNlDQoNCmBgYHtyfQ0KaG95ZGUgPC0gaGVpZ2h0cw0KYGBgDQoNCiMjIFJlZHVzZXJ0IGRhdGFzZXR0IA0KDQpgYGB7cn0NCmhveWRlIDwtIGhveWRlICU+JSANCiAgIG11dGF0ZShpbm50ZWt0ID0gaW5jb21lICogOC40MikNCg0KYGBgDQoNCg0KYGBge3J9DQpob3lkZV9iZWdyIDwtIGhveWRlICU+JSAgDQogIGZpbHRlcihpbm50ZWt0IDwgMTUwMDAwMCwNCiAgICAgICAgIGlubnRla3QgPiAxKQ0KYGBgDQoNCg0KIyMgTGFnIHRvIG55ZSB2YXJpYWJsZXIgKyBsYWcgbnkgdmFyaWFiZWwgYm1pDQoNCmBgYHtyfQ0KaG95ZGUgPC0gaG95ZGUgJT4lIA0KICBtdXRhdGUoaG95ZGVfY20gPSBoZWlnaHQgKiAyLjU0LA0KICAgICAgICAgdmVrdF9rZyA9IHdlaWdodCAqIDAuNDU0LA0KICAgICAgICAgQk1JID0gKHZla3Rfa2cvaG95ZGVfY20pXjIpDQpgYGANCg0KDQojIyBGb3JlbmtsZXQgdXRnYXZlIGF2IHZhcmlhYmVsZW4gIk1hcnRpYWwiDQoNCmBgYHtyfQ0KaG95ZGUgPC0gaG95ZGUgJT4lIA0KbXV0YXRlKA0KICBtYXJyaWVkID0gZmFjdG9yKA0KICAgIGNhc2Vfd2hlbigNCiAgICAgIG1hcml0YWwgPT0gJ21hcnJpZWQnIH4gVFJVRSwNCiAgICAgIFRSVUUgfiBGQUxTRQ0KICAgICAgKQ0KICAgICkNCiAgKQ0KYGBgDQoNCiMjIG1pbnN0IDYgDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBob3lkZSwgYWVzKHggPSBpbmNvbWUpKSArIA0KICBnZW9tX2hpc3RvZ3JhbSgpDQpgYGANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IGhveWRlX2JlZ3IsIGFlcyh4ID0gaW5jb21lKSkgKyANCiAgZ2VvbV9oaXN0b2dyYW0gKCkNCmBgYA0KDQoNCmBgYHtyfQ0KbG0oaW5jb21lIH4gaG95ZGVfY20sIGRhdGEgPSBob3lkZSkgJT4lICANCiAgc3VtbWFyeSgpDQpgYGANCg0KYGBge3J9DQpsbShpbm50ZWt0IH4gaG95ZGVfY20sIGRhdGEgPSBob3lkZSkgJT4lIA0KICBzdW1tYXJ5KCkNCmBgYA0KDQoNCmBgYHtyfQ0KIC0xMzM3ODM3LjQgKyAoOTg4NC42ICoxNzMpDQotMTMzNzgzNy40ICsgKDk4ODQuNiAqMTYxKQ0KYGBgDQpgYGB7cn0NCmxtKGlubnRla3QgfiBob3lkZV9jbSArIHZla3Rfa2csIGRhdGEgPSBob3lkZV9iZWdyKSAlPiUgDQogIHN1bW1hcnkoKQ0KYGBgDQoNCg0KYGBge3J9DQotNjk3Mzc0LjcgKyAoNjczNS43KjE3MykgKyAoLTY5MS41KjcwKQ0KYGBgDQoNCg0KDQojIFRlc3QsIGthbiBzaWtrZXJ0IGJhcmUgc2xldHRlcyANCmBgYHtyfQ0KYXR0YWNoKGhlaWdodHMpDQpzdW1tYXJ5KGluY29tZSkNCmhpc3RvZ3JhbShpbmNvbWUpDQpgYGANCg0KIA0KIA0KICMgdGVzdCBtb2RlbGxlciANCiANCmBgYHtyfQ0KbGlicmFyeShodXh0YWJsZSkNCmBgYA0KIA0KYGBge3J9DQpzdW1tYXJ5KGhveWRlX2JlZ3IpDQpgYGANCg0KYGBge3J9DQpsbTEgPC1sbSAoaW5jb21lIH4gaGVpZ2h0LCBkYXRhID0gaG95ZGVfYmVncikNCmxtMiA8LWxtIChpbmNvbWUgfiBoZWlnaHQgKyB3ZWlnaHQsIGRhdGEgPSBob3lkZV9iZWdyKQ0KbG0zIDwtbG0gKGluY29tZSB+IGhlaWdodCArIHdlaWdodCArIGFnZSArIHNleCwgZGF0YSA9ICBob3lkZV9iZWdyKQ0KYGBgDQoNCmBgYHtyfQ0Kc3VtbWFyeShsbTMpDQpgYGANCg0KYGBge3J9DQpodXhyZWcobG0xLCBsbTIsIGxtMykNCmBgYA0KDQpgYGB7cn0NCmh1eHJlZygNCmxtMSwgbG0yLCBsbTMsDQplcnJvcl9mb3JtYXQgPSAiW3tzdGF0aXN0aWN9XSIsDQpub3RlID0gIntzdGFyc30uIFQgc3RhdGlzdGljcyBpbiBicmFja2V0cy4iDQopDQpgYGANCg0KYGBge3J9DQpoZWlnaHRzX2VrcyA8LSBob3lkZV9iZWdyDQpgYGANCg0KIyBzcMO4ciBvbSBkZW5uZSAgDQoNCmBgYHtyfQ0KbWRsXzEgPC0gImxvZyhpbmNvbWUpIH4gc2V4KmhlaWdodCArIHdlaWdodCArIEkod2VpZ2h0XjIpICsgYWdlICsgSShhZ2VeMikiDQptZGxfMSA8LSBsbShtZGxfMSwgZGF0YSA9IGhlaWdodHNfZWtzKQ0KYGBgDQoNCmBgYHtyfQ0Kc3VtbWFyeShtZGxfMSkNCmBgYA0KDQpgYGB7cn0NCmNvcih4ID0gaGVpZ2h0c19la3Mkc2V4LCB5ID0gaGVpZ2h0c19la3Mkc2V4ICogaGVpZ2h0c19la3MkaW5jb21lLCB1c2UgPSAncGFpcndpc2UuY29tcGxldGUub2JzJykNCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnkoTUFTUykNCmxpYnJhcnkoaHlwb3RoZXNpc3IpDQpsaWJyYXJ5KHN1cnZleSkNCmBgYA0KDQoNCmBgYHtyfQ0KbGh0KG1kbF8xLCBjKCJzZXggPSAwIiwgInNleDppbmNvbWUgPSAwIikpDQpgYGANCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVyIGRldCBow7h5ZGUgc29tIGJlc3RlbW1lciBpbm50ZWt0PyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KbGFuZzogbm8tTkINCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkoZ2dwbG90MikNCmxpYnJhcnkodGlueXRleCkNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeShtb2RlbHIpDQpsaWJyYXJ5KGdncHVicikNCm9wdGlvbnMoc2NpcGVuID0gOTk5KQ0KYGBgDQoNCiMgS29ydCBpbm5sZWRuaW5nIA0KDQojIEtvcnQgbGl0dGVyYXR1cmdqZW5ub21nYW5nIHDDpSBlbiBzaWRlLg0KDQojIEFuYWx5c2UNCg0KYGBge3IgSG95ZGV9DQpob3lkZSA8LSBoZWlnaHRzDQpgYGANCg0KIyBCZXNrcml2ZW5kZSBzdGF0ZXN0aWtrDQpTZSBww6UgZGV0dGUgc2VuZXJlLiANCg0KIyBFREENCg0KYGBge3J9DQojU2xldHQgZGV0dGUgc2VuZXJlPw0KZ2dwbG90KGRhdGEgPSBob3lkZSkNCmBgYA0KDQoNCiMjIExhZyBldCBoaXN0b2dyYW0gYXYgdmFyaWFibGVuICppbmNvbWUqDQoNCmBgYHtyfQ0KZ2dwbG90KGRhdGEgPSBob3lkZSwgYWVzKGluY29tZSkpICsNCiAgZ2VvbV9oaXN0b2dyYW0oKQ0KYGBgDQoNCiMjIEZvcmtsYXJpbmdlbiBww6UgdXRsaWdnZXJuZSBsYW5ndCB0aWwgaMO4eXJlDQoNCiMjIFBlcnNvbmVyIHV0ZW4gaW5udGVrdCBpbmtsdWRlcnQgaSBkYXRhc2V0dGV0PyANCg0KYGBge3J9DQpzdW0oaG95ZGUkaW5jb21lID09IDApDQpgYGANCg0KDQojIFJlZ3Jlc2pvbnNhbmFseXNlDQoNCmBgYHtyfQ0KaG95ZGUgPC0gaGVpZ2h0cw0KYGBgDQoNCiMjIFJlZHVzZXJ0IGRhdGFzZXR0IA0KDQpgYGB7cn0NCmhveWRlIDwtIGhveWRlICU+JSANCiAgIG11dGF0ZShpbm50ZWt0ID0gaW5jb21lICogOC40MikNCg0KYGBgDQoNCg0KYGBge3J9DQpob3lkZV9iZWdyIDwtIGhveWRlICU+JSAgDQogIGZpbHRlcihpbm50ZWt0IDwgMTUwMDAwMCwNCiAgICAgICAgIGlubnRla3QgPiAxKQ0KYGBgDQoNCg0KIyMgTGFnIHRvIG55ZSB2YXJpYWJsZXIgKyBsYWcgbnkgdmFyaWFiZWwgYm1pDQoNCmBgYHtyfQ0KaG95ZGVfYmVnciA8LSBob3lkZSAlPiUgDQogIG11dGF0ZShob3lkZV9jbSA9IGhlaWdodCAqIDIuNTQsDQogICAgICAgICB2ZWt0X2tnID0gd2VpZ2h0ICogMC40NTQsDQogICAgICAgICBCTUkgPSAodmVrdF9rZy9ob3lkZV9jbSleMikNCmBgYA0KDQoNCiMjIEZvcmVua2xldCB1dGdhdmUgYXYgdmFyaWFiZWxlbiAiTWFydGlhbCINCg0KYGBge3J9DQpob3lkZSA8LSBob3lkZSAlPiUgDQptdXRhdGUoDQogIG1hcnJpZWQgPSBmYWN0b3IoDQogICAgY2FzZV93aGVuKA0KICAgICAgbWFyaXRhbCA9PSAnbWFycmllZCcgfiBUUlVFLA0KICAgICAgVFJVRSB+IEZBTFNFDQogICAgICApDQogICAgKQ0KICApDQpgYGANCg0KIyMgbWluc3QgNiANCg0KYGBge3J9DQpnZ3Bsb3QoZGF0YSA9IGhveWRlLCBhZXMoeCA9IGluY29tZSkpICsgDQogIGdlb21faGlzdG9ncmFtKCkNCmBgYA0KDQpgYGB7cn0NCmdncGxvdChkYXRhID0gaG95ZGVfYmVnciwgYWVzKHggPSBpbmNvbWUpKSArIA0KICBnZW9tX2hpc3RvZ3JhbSAoKQ0KYGBgDQoNCg0KYGBge3J9DQpsbShpbmNvbWUgfiBob3lkZV9jbSwgZGF0YSA9IGhveWRlKSAlPiUgIA0KICBzdW1tYXJ5KCkNCmBgYA0KDQpgYGB7cn0NCmxtKGlubnRla3QgfiBob3lkZV9jbSwgZGF0YSA9IGhveWRlKSAlPiUgDQogIHN1bW1hcnkoKQ0KYGBgDQoNCg0KYGBge3J9DQogLTEzMzc4MzcuNCArICg5ODg0LjYgKjE3MykNCi0xMzM3ODM3LjQgKyAoOTg4NC42ICoxNjEpDQpgYGANCiANCiMgc3DDuHJyZSBvbSBoamVscA0KIA0KYGBge3J9DQpsbShpbm50ZWt0IH4gaG95ZGVfY20gKyB2ZWt0X2tnLCBkYXRhID0gaG95ZGVfYmVncikgJT4lIA0KICBzdW1tYXJ5KCkNCmBgYA0KDQoNCmBgYHtyfQ0KLTY5NzM3NC43ICsgKDY3MzUuNyoxNzMpICsgKC02OTEuNSo3MCkNCmBgYA0KDQoNCg0KIyBUZXN0LCBrYW4gc2lra2VydCBiYXJlIHNsZXR0ZXMgDQpgYGB7cn0NCmF0dGFjaChoZWlnaHRzKQ0Kc3VtbWFyeShpbmNvbWUpDQpoaXN0b2dyYW0oaW5jb21lKQ0KYGBgDQoNCiANCiANCiAjIHRlc3QgbW9kZWxsZXIgDQogDQpgYGB7cn0NCmxpYnJhcnkoaHV4dGFibGUpDQpgYGANCiANCmBgYHtyfQ0Kc3VtbWFyeShob3lkZV9iZWdyKQ0KYGBgDQoNCmBgYHtyfQ0KbG0xIDwtbG0gKGluY29tZSB+IGhlaWdodCwgZGF0YSA9IGhveWRlX2JlZ3IpDQpsbTIgPC1sbSAoaW5jb21lIH4gaGVpZ2h0ICsgd2VpZ2h0LCBkYXRhID0gaG95ZGVfYmVncikNCmxtMyA8LWxtIChpbmNvbWUgfiBoZWlnaHQgKyB3ZWlnaHQgKyBhZ2UgKyBzZXgsIGRhdGEgPSAgaG95ZGVfYmVncikNCmBgYA0KDQpgYGB7cn0NCnN1bW1hcnkobG0zKQ0KYGBgDQoNCg0KYGBge3J9DQpodXhyZWcobG0xLCBsbTIsIGxtMykNCmBgYA0KDQpgYGB7cn0NCmh1eHJlZygNCmxtMSwgbG0yLCBsbTMsDQplcnJvcl9mb3JtYXQgPSAiW3tzdGF0aXN0aWN9XSIsDQpub3RlID0gIntzdGFyc30uIFQgc3RhdGlzdGljcyBpbiBicmFja2V0cy4iDQopDQpgYGANCg0KYGBge3J9DQpoZWlnaHRzX2VrcyA8LSBob3lkZV9iZWdyDQpgYGANCg0KIyBzcMO4ciBvbSBkZW5uZSAgDQoNCmBgYHtyfQ0KbWRsXzEgPC0gImxvZyhpbmNvbWUpIH4gc2V4KmhlaWdodCArIHdlaWdodCArIEkod2VpZ2h0XjIpICsgYWdlICsgSShhZ2VeMikiDQptZGxfMSA8LSBsbShtZGxfMSwgZGF0YSA9IGhlaWdodHNfZWtzKQ0KYGBgDQoNCmBgYHtyfQ0Kc3VtbWFyeShtZGxfMSkNCmBgYA0KDQpgYGB7cn0NCmNvcih4ID0gaGVpZ2h0c19la3Mkc2V4LCB5ID0gaGVpZ2h0c19la3Mkc2V4ICogaGVpZ2h0c19la3MkaW5jb21lLCB1c2UgPSAncGFpcndpc2UuY29tcGxldGUub2JzJykNCmBgYA0KDQpgYGB7cn0NCmxpYnJhcnkoTUFTUykNCmxpYnJhcnkoaHlwb3RoZXNpc3IpDQpsaWJyYXJ5KHN1cnZleSkNCmxpYnJhcnkoY2FyKQ0KYGBgDQoNCg0KYGBge3J9DQpsaHQobWRsXzEsIGMoInNleCA9IDAiLCAic2V4OmluY29tZSA9IDAiKSkNCmBgYA0KDQoNCg==</div>
 
 
 

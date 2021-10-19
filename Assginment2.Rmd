@@ -75,7 +75,7 @@ hoyde_begr <- hoyde %>%
 ## Lag to nye variabler + lag ny variabel bmi
 
 ```{r}
-hoyde <- hoyde %>% 
+hoyde_begr <- hoyde %>% 
   mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
@@ -124,6 +124,9 @@ lm(inntekt ~ hoyde_cm, data = hoyde) %>%
  -1337837.4 + (9884.6 *173)
 -1337837.4 + (9884.6 *161)
 ```
+ 
+# spørre om hjelp
+ 
 ```{r}
 lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %>% 
   summary()
@@ -165,6 +168,7 @@ lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
 summary(lm3)
 ```
 
+
 ```{r}
 huxreg(lm1, lm2, lm3)
 ```
@@ -200,6 +204,7 @@ cor(x = heights_eks$sex, y = heights_eks$sex * heights_eks$income, use = 'pairwi
 library(MASS)
 library(hypothesisr)
 library(survey)
+library(car)
 ```
 
 
