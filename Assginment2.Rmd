@@ -1,6 +1,8 @@
 ---
 title: "Er det høyde som bestemmer inntekt?"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 lang: no-NB
 ---
 
@@ -13,7 +15,14 @@ library(ggpubr)
 options(scipen = 999)
 ```
 
-# Kort innledning 
+# Kort innledning
+
+Vi vil i denne oppgaven bruke datasettet ***heights*** for å undersøke
+riktigheten i påstanden om at høye folk tjener mer penger. Undersøkelsen
+vil bli gjort gjennom analyser av ulike variabler og ved
+regresjonsanalyser. Resultatene vil bli fremstilt i ulike modeller, før
+vi vil avslutte med en konklusjon av spørsmålet "er det høyde som
+bestemmer inntekt?"
 
 # Kort litteraturgjennomgang på en side.
 
@@ -24,7 +33,8 @@ hoyde <- heights
 ```
 
 # Beskrivende statestikk
-Se på dette senere. 
+
+Se på dette senere.
 
 # EDA
 
@@ -32,7 +42,6 @@ Se på dette senere.
 #Slett dette senere?
 ggplot(data = hoyde)
 ```
-
 
 ## Lag et histogram av variablen *income*
 
@@ -43,12 +52,11 @@ ggplot(data = hoyde, aes(income)) +
 
 ## Forklaringen på utliggerne langt til høyre
 
-## Personer uten inntekt inkludert i datasettet? 
+## Personer uten inntekt inkludert i datasettet?
 
 ```{r}
 sum(hoyde$income == 0)
 ```
-
 
 # Regresjonsanalyse
 
@@ -56,7 +64,7 @@ sum(hoyde$income == 0)
 hoyde <- heights
 ```
 
-## Redusert datasett 
+## Redusert datasett
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -64,13 +72,11 @@ hoyde <- hoyde %>%
 
 ```
 
-
 ```{r}
 hoyde_begr <- hoyde %>%  
   filter(inntekt < 1500000,
          inntekt > 1)
 ```
-
 
 ## Lag to nye variabler + lag ny variabel bmi
 
@@ -80,7 +86,6 @@ hoyde_begr <- hoyde %>%
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
 ```
-
 
 ## Forenklet utgave av variabelen "Martial"
 
@@ -96,7 +101,7 @@ mutate(
   )
 ```
 
-## minst 6 
+## minst 6
 
 ```{r}
 ggplot(data = hoyde, aes(x = income)) + 
@@ -108,7 +113,6 @@ ggplot(data = hoyde_begr, aes(x = income)) +
   geom_histogram ()
 ```
 
-
 ```{r}
 lm(income ~ hoyde_cm, data = hoyde) %>%  
   summary()
@@ -119,41 +123,36 @@ lm(inntekt ~ hoyde_cm, data = hoyde) %>%
   summary()
 ```
 
-
 ```{r}
  -1337837.4 + (9884.6 *173)
 -1337837.4 + (9884.6 *161)
 ```
- 
+
 # spørre om hjelp
- 
+
 ```{r}
 lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %>% 
   summary()
 ```
 
-
 ```{r}
 -697374.7 + (6735.7*173) + (-691.5*70)
 ```
 
+# Test, kan sikkert bare slettes
 
-
-# Test, kan sikkert bare slettes 
 ```{r}
 attach(heights)
 summary(income)
 histogram(income)
 ```
 
- 
- 
- # test modeller 
- 
+\# test modeller
+
 ```{r}
 library(huxtable)
 ```
- 
+
 ```{r}
 summary(hoyde_begr)
 ```
@@ -167,7 +166,6 @@ lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
 ```{r}
 summary(lm3)
 ```
-
 
 ```{r}
 huxreg(lm1, lm2, lm3)
@@ -185,7 +183,7 @@ note = "{stars}. T statistics in brackets."
 heights_eks <- hoyde_begr
 ```
 
-# spør om denne  
+# spør om denne (riktige variabler?)
 
 ```{r}
 mdl_1 <- "log(income) ~ sex*height + weight + I(weight^2) + age + I(age^2)"
@@ -207,9 +205,6 @@ library(survey)
 library(car)
 ```
 
-
 ```{r}
-lht(mdl_1, c("sex = 0", "sex:income = 0"))
+linearHypothesis(mdl_1, c("female = 0", "female:income = 0"))
 ```
-
-
