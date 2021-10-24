@@ -18,11 +18,10 @@ options(scipen = 999)
 # Kort innledning
 
 Vi vil i denne oppgaven bruke datasettet ***heights*** for å undersøke
-riktigheten i påstanden om at høye folk tjener mer penger. Undersøkelsen
-vil bli gjort gjennom analyser av ulike variabler og ved
-regresjonsanalyser. Resultatene vil bli fremstilt i ulike modeller, før
-vi vil avslutte med en konklusjon av spørsmålet "er det høyde som
-bestemmer inntekt?"
+riktigheten i påstanden om at høyde bestemmer inntekt. Undersøkelsen vil
+bli gjort gjennom analyser av ulike variabler og ved regresjonsanalyser.
+Resultatene vil bli fremstilt i ulike modeller, før vi vil avslutte med
+en konklusjon av spørsmålet "er det høyde som bestemmer inntekt?"
 
 # Kort litteraturgjennomgang på en side.
 
