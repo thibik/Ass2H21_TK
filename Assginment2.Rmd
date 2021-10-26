@@ -6,6 +6,7 @@ output:
 lang: no-NB
 ---
 
+
 ```{r}
 library(ggplot2)
 library(tinytex)
@@ -90,7 +91,7 @@ ggplot(data = hoyde_begr, aes(income)) +
 ## Lag to nye variabler + lag ny variabel bmi
 
 ```{r}
-hoyde_begr <- hoyde %>% 
+hoyde <- hoyde %>% 
   mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
@@ -119,12 +120,12 @@ ggplot(data = hoyde, aes(x = income)) +
 ```
 
 ```{r}
-lm(income ~ hoyde_cm, data = hoyde_begr) %>%  
+lm(income ~ hoyde_cm, data = hoyde) %>%  
   summary()
 ```
 
 ```{r}
-lm(inntekt ~ hoyde_cm, data = hoyde_begr) %>% 
+lm(inntekt ~ hoyde_cm, data = hoyde) %>% 
   summary()
 ```
 
@@ -136,7 +137,8 @@ lm(inntekt ~ hoyde_cm, data = hoyde_begr) %>%
 # spørre om hjelp
 
 ```{r}
-lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde_begr) %>% 
+lm1 <- lm
+lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde) %>% 
   summary()
 ```
 
@@ -224,3 +226,16 @@ library(car)
 ```{r}
 linearHypothesis(mdl_1, c("female = 0", "female:income = 0"))
 ```
+
+
+
+
+
+
+
+```{r}
+lm1 <-lm (income ~ height, data = hoyde_begr)
+lm2 <-lm (income ~ height + weight, data = hoyde_begr)
+lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
+```
+
