@@ -13,7 +13,7 @@ library(tinytex)
 library(tidyverse)
 library(modelr)
 library(ggpubr)
-
+library(huxtable)
 options(scipen = 999)
 ```
 
