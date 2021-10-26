@@ -64,7 +64,7 @@ sum(hoyde$income == 0)
 hoyde <- heights
 ```
 
-## Redusert datasett
+## Dollar til norske kroner 
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -72,11 +72,20 @@ hoyde <- hoyde %>%
 
 ```
 
+
+## Redusert datasett
+
 ```{r}
 hoyde_begr <- hoyde %>%  
   filter(inntekt < 1500000,
          inntekt > 1)
 ```
+
+```{r}
+ggplot(data = hoyde_begr, aes(income)) +
+  geom_histogram()
+```
+
 
 ## Lag to nye variabler + lag ny variabel bmi
 
@@ -104,22 +113,18 @@ mutate(
 ## minst 6
 
 ```{r}
+# Denne kan du bare slette, vi har akkurat lik graf lengre oppe.
 ggplot(data = hoyde, aes(x = income)) + 
   geom_histogram()
 ```
 
 ```{r}
-ggplot(data = hoyde_begr, aes(x = income)) + 
-  geom_histogram ()
-```
-
-```{r}
-lm(income ~ hoyde_cm, data = hoyde) %>%  
+lm(income ~ hoyde_cm, data = hoyde_begr) %>%  
   summary()
 ```
 
 ```{r}
-lm(inntekt ~ hoyde_cm, data = hoyde) %>% 
+lm(inntekt ~ hoyde_cm, data = hoyde_begr) %>% 
   summary()
 ```
 
@@ -147,7 +152,7 @@ summary(income)
 histogram(income)
 ```
 
-\# test modeller
+# test modeller
 
 ```{r}
 library(huxtable)
@@ -157,11 +162,22 @@ library(huxtable)
 summary(hoyde_begr)
 ```
 
+
+```{r}
+Model1 <-lm (income ~ height, data = hoyde)
+Model2 <-lm (income ~ height + weight, data = hoyde)
+Model3 <-lm (income ~ height + weight + age + sex, data =  hoyde)
+```
+
+
+
 ```{r}
 lm1 <-lm (income ~ height, data = hoyde_begr)
 lm2 <-lm (income ~ height + weight, data = hoyde_begr)
 lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
 ```
+
+
 
 ```{r}
 summary(lm3)
