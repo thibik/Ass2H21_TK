@@ -120,8 +120,8 @@ ggplot(data = hoyde, aes(x = income)) +
 ```
 
 ```{r}
-lm(income ~ hoyde_cm, data = hoyde) %>%  
-  summary()
+model1 <- "inntekt ~ hoyde_cm"
+lm1 <- lm(model1, data = hoyde, subset = complete.cases(hoyde)) 
 ```
 
 ```{r}
@@ -137,7 +137,7 @@ lm(inntekt ~ hoyde_cm, data = hoyde) %>%
 # spørre om hjelp
 
 ```{r}
-lm1 <- lm
+Model2 <- lm
 lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde) %>% 
   summary()
 ```
