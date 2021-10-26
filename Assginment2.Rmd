@@ -13,6 +13,7 @@ library(tinytex)
 library(tidyverse)
 library(modelr)
 library(ggpubr)
+
 options(scipen = 999)
 ```
 
@@ -88,7 +89,7 @@ ggplot(data = hoyde_begr, aes(income)) +
 ```
 
 
-## Lag to nye variabler + lag ny variabel bmi
+## Lag to nye variabler + lag ny variabel "bmi"
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -125,6 +126,7 @@ lm1 <- lm(model1, data = hoyde, subset = complete.cases(hoyde))
 ```
 
 ```{r}
+# Slette
 lm(inntekt ~ hoyde_cm, data = hoyde) %>% 
   summary()
 ```
@@ -137,28 +139,33 @@ lm(inntekt ~ hoyde_cm, data = hoyde) %>%
 # spørre om hjelp
 
 ```{r}
-Model2 <- lm
-lm(inntekt ~ hoyde_cm + vekt_kg, data = hoyde) %>% 
-  summary()
+Model2 <- "inntekt ~ hoyde_cm + vekt_kg" 
+lm2 <- lm(Model2, data = hoyde, subset = complete.cases(hoyde))
 ```
+
 
 ```{r}
 -697374.7 + (6735.7*173) + (-691.5*70)
 ```
 
-# Test, kan sikkert bare slettes
+```{r}
+Model3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
+lm3 <- lm(Model3, data = hoyde, subset = complete.cases(hoyde))
+```
 
 ```{r}
-attach(heights)
-summary(income)
-histogram(income)
+summary(lm3)
 ```
+
+
+
 
 # test modeller
 
 ```{r}
 library(huxtable)
 ```
+
 
 ```{r}
 summary(hoyde_begr)
