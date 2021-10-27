@@ -171,8 +171,7 @@ summary(hoyde_begr)
 # Huxreg
 
 ```{r}
-huxreg 
-(list
+huxreg (list
   ("model1" = lm1, "model2" = lm2, "model3" = lm3),
        error_format = "[{statistic}]",
        note = "Regresjonstabell 3: {stars}.T statistics in brackets."
