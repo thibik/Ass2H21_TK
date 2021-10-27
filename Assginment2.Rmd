@@ -38,7 +38,7 @@ hoyde <- heights
 
 # Beskrivende statestikk
 
-Se på dette senere.
+Dis
 
 # EDA
 
@@ -55,6 +55,8 @@ ggplot(data = hoyde, aes(income)) +
 ```
 
 ## Forklaringen på utliggerne langt til høyre
+
+
 
 ## Personer uten inntekt inkludert i datasettet?
 
@@ -114,66 +116,48 @@ mutate(
   )
 ```
 
-## minst 6
+# Minst 6 modeller
 
-```{r}
-# Denne kan du bare slette, vi har akkurat lik graf lengre oppe.
-ggplot(data = hoyde, aes(x = income)) + 
-  geom_histogram()
-```
 
 ```{r}
 model1 <- "inntekt ~ hoyde_cm"
 lm1 <- lm(model1, data = hoyde, subset = complete.cases(hoyde)) 
+summary(lm1)
 ```
 
-```{r}
-# Slette
-lm(inntekt ~ hoyde_cm, data = hoyde) %>% 
-  summary()
-```
 
 ```{r}
- -1337837.4 + (9884.6 *173)
+#trenger vi å ta med dette??
+-1337837.4 + (9884.6 *173)
 -1337837.4 + (9884.6 *161)
 ```
 
-# spørre om hjelp
 
 ```{r}
 Model2 <- "inntekt ~ hoyde_cm + vekt_kg" 
 lm2 <- lm(Model2, data = hoyde, subset = complete.cases(hoyde))
+summary(lm2)
 ```
 
 
 ```{r}
+#Må vi ta med dette??
 -697374.7 + (6735.7*173) + (-691.5*70)
 ```
 
 ```{r}
 Model3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
 lm3 <- lm(Model3, data = hoyde, subset = complete.cases(hoyde))
-```
-
-```{r}
 summary(lm3)
 ```
 
 
-
-
-# test modeller
-
 ```{r}
-library(huxtable)
-```
-
-
-```{r}
+# Slett denne
 summary(hoyde_begr)
 ```
 
-## huxreg
+# Huxreg
 
 ```{r}
 huxreg 
@@ -185,10 +169,10 @@ huxreg
 ```
 
 
-## Interaksjon 
+# Interaksjon 
 
 ```{r}
-# Riktig, 
+# Riktig, fjern denne linjen.
 Model4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
 lm4 <- lm(Model4, data = hoyde)
 summary(lm4)
@@ -198,45 +182,24 @@ summary(lm4)
 Model5 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2)) + BMI + I(BMI^2)"
 lm5 <- lm(Model5, data = hoyde)
 summary(lm4)
-`
 ```
 
-
-```{r}
-huxreg
-```
-
-
-
-```{r}
-heights_eks <- hoyde_begr
-```
-
-# spør om denne (riktige variabler?)
-
-```{r}
-mdl_1 <- "log(income) ~ sex*height + weight + I(weight^2) + age + I(age^2)"
-mdl_1 <- lm(mdl_1, data = heights_eks)
-```
-
-
-
-
+# Test av koeffisientene 
 
 ```{r}
 linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 ```
 
-## Legg begreningene her.
+# Begrensing 
 
 ```{r}
 Model6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
-lm6 <- lm(Model4, data = hoyde_begr)
-summary(lm4)
+lm6 <- lm(Model6, data = hoyde_begr)
+summary(lm6)
 ```
 
 
-
+# Legge til resiudalene til datasettet
 
 ```{r}
 # Bruk verdiene fra begrenset datasett
@@ -245,17 +208,7 @@ hoyde_begr <- hoyde %>%
 hoyde_begr
 ```
 
-
-
-
-
-
-
-
-
-
-
-
+# Plot av samtilige observasjoner
 
 ```{r}
 ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
@@ -269,19 +222,6 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
 ```
 
 
+# Konklusjon
 
 
-
-
-
-```{r}
-lm1 <-lm (income ~ height, data = hoyde_begr)
-lm2 <-lm (income ~ height + weight, data = hoyde_begr)
-lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
-```
-
-```{r}
-Model1 <-lm (income ~ height, data = hoyde)
-Model2 <-lm (income ~ height + weight, data = hoyde)
-Model3 <-lm (income ~ height + weight + age + sex, data =  hoyde)
-```
