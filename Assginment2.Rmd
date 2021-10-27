@@ -35,13 +35,20 @@ bestemmer inntekt?".
 # Analyse
 
 ```{r Hoyde}
-hoyde <- heights %>% 
-  add_residuals(lm6)
+hoyde <- heights
 ```
 
 # Beskrivende statestikk
 
-Dis
+Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av åtte variabler og 7006 observasjoner. Basert på disse variablene og observasjonene skal det være mulig å konkludere om ens inntekt bestemmes av høyde. Variablene som er inkludert i datasettet er: 
+* income - Basert på årlig inntekt, der topp to prosent er representert av gjennomsnittelig verdi av de to prosentene. 
+* height - Høyden til subjektene som har deltatt målt i inch.
+* weight - Vekten til subjektene som har deltatt målt i pounds.
+* age - Alderen til subjektene som har deltatt er mellom 47 og 56.
+* martial - Subjektenes sivilstatus, om der gift eller skilt. 
+* sex - Subjektenes kjønn, mann eller kvinne. 
+* education - Subjektenes år med utdanning. 
+* afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification Test' 
 
 # EDA
 
@@ -59,13 +66,14 @@ ggplot(data = hoyde, aes(income)) +
 
 ## Forklaringen på utliggerne langt til høyre
 
-
+På modellen ser man at utliggeren som i dette tilfellet er ekstremalpunktet ligger langt til høyre. Dette er på grunn av at de har blitt regnet ut et gjennomsnitt av topp to prosentene av inntektene.  
 
 ## Personer uten inntekt inkludert i datasettet?
 
 ```{r}
 sum(hoyde$income == 0)
 ```
+Det er altså 1740 av 7006 personer som har null i inntekt.
 
 # Regresjonsanalyse
 
@@ -80,7 +88,7 @@ hoyde <- hoyde %>%
    mutate(inntekt = income * 8.42)
 
 ```
-
+Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på 8.42.
 
 ## Redusert datasett
 
