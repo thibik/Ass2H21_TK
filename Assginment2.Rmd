@@ -13,7 +13,7 @@ library(tinytex)
 library(tidyverse)
 library(modelr)
 library(ggpubr)
-
+library(huxtable)
 library(car)
 library(carData)
 options(scipen = 999)
@@ -173,38 +173,40 @@ library(huxtable)
 summary(hoyde_begr)
 ```
 
+## huxreg
 
 ```{r}
-Model1 <-lm (income ~ height, data = hoyde)
-Model2 <-lm (income ~ height + weight, data = hoyde)
-Model3 <-lm (income ~ height + weight + age + sex, data =  hoyde)
-```
-
-
-
-```{r}
-lm1 <-lm (income ~ height, data = hoyde_begr)
-lm2 <-lm (income ~ height + weight, data = hoyde_begr)
-lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
-```
-
-
-
-```{r}
-summary(lm3)
-```
-
-```{r}
-huxreg(lm1, lm2, lm3)
-```
-
-```{r}
-huxreg(
-lm1, lm2, lm3,
-error_format = "[{statistic}]",
-note = "{stars}. T statistics in brackets."
+huxreg 
+(list
+  ("model1" = lm1, "model2" = lm2, "model3" = lm3),
+       error format = "[{statistic}]",
+       note = "Regresjonstabell 3: {stars}.T statistics in brackets."
 )
 ```
+
+
+## Interaksjon 
+
+```{r}
+# Riktig, 
+Model4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+lm4 <- lm(Model4, data = hoyde)
+summary(lm4)
+```
+
+```{r}
+Model5 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2)) + BMI + I(BMI^2)"
+lm5 <- lm(Model5, data = hoyde)
+summary(lm4)
+`
+```
+
+
+```{r}
+huxreg
+```
+
+
 
 ```{r}
 heights_eks <- hoyde_begr
@@ -217,24 +219,25 @@ mdl_1 <- "log(income) ~ sex*height + weight + I(weight^2) + age + I(age^2)"
 mdl_1 <- lm(mdl_1, data = heights_eks)
 ```
 
-```{r}
-summary(mdl_1)
-```
+
+
+
 
 ```{r}
-cor(x = heights_eks$sex, y = heights_eks$sex * heights_eks$income, use = 'pairwise.complete.obs')
+linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 ```
 
-```{r}
-library(MASS)
-library(hypothesisr)
-library(survey)
-library(car)
-```
 
-```{r}
-linearHypothesis(mdl_1, c("female = 0", "female:income = 0"))
-```
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -248,3 +251,8 @@ lm2 <-lm (income ~ height + weight, data = hoyde_begr)
 lm3 <-lm (income ~ height + weight + age + sex, data =  hoyde_begr)
 ```
 
+```{r}
+Model1 <-lm (income ~ height, data = hoyde)
+Model2 <-lm (income ~ height + weight, data = hoyde)
+Model3 <-lm (income ~ height + weight + age + sex, data =  hoyde)
+```
