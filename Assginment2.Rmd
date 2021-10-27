@@ -227,6 +227,23 @@ mdl_1 <- lm(mdl_1, data = heights_eks)
 linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 ```
 
+## Legg begreningene her.
+
+```{r}
+Model6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+lm6 <- lm(Model4, data = hoyde_begr)
+summary(lm4)
+```
+
+
+
+
+```{r}
+# Bruk verdiene fra begrenset datasett
+hoyde_begr <- hoyde %>% 
+  add_residuals(lm6)
+hoyde_begr
+```
 
 
 
@@ -238,6 +255,18 @@ linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 
 
 
+
+
+```{r}
+ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
+  geom_point(
+    data = hoyde_begr, 
+    mapping = aes(x = hoyde_cm, y = resid),
+    colour = "grey40",
+    size = 0.3
+    ) + 
+  facet_grid(sex ~ factor(married, labels = c("not married", "married")))
+```
 
 
 
