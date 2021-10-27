@@ -50,7 +50,14 @@ befolkningen tjener 9-10% mer enn den laveste fjerdedelen (...)", hvor
 forskere begrunner dette med andre psykologiske årsaker som @judge2004
 også referer til, nemlig selvtillit [@elikvisvik2008a].
 
-Ved å bruke
+Ved å bruke både dattasettet ***heights*** og gjennom argumentene
+@elikvisvik2008 og @judge2004 legger til grunn, vil vi teste påstandene
+gjennom statistikken som utføres videre i oppgaven. Ved bruk av
+datasettet og dets variabler vil vi kunne se flere aspekter relatert til
+høyde og inntekt hvor variablene vekt, kjønn, alder og utdannelse også
+vil være inkludert. Konklusjonen av oppgaven vil være basert på utfallet
+av de framlagte data, hvor vi naturligvis vil se om våre resultater
+støtter @judge2004 og @elikvisvik2008 resultater.
 
 ```{r Hoyde}
 hoyde <- heights
@@ -61,15 +68,18 @@ hoyde <- heights
 Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av
 åtte variabler og 7006 observasjoner. Basert på disse variablene og
 observasjonene skal det være mulig å konkludere om ens inntekt bestemmes
-av høyde. Variablene som er inkludert i datasettet er: \* income -
-Basert på årlig inntekt, der topp to prosent er representert av
-gjennomsnittelig verdi av de to prosentene. \* height - Høyden til
-subjektene som har deltatt målt i inch. \* weight - Vekten til
-subjektene som har deltatt målt i pounds. \* age - Alderen til
-subjektene som har deltatt er mellom 47 og 56. \* martial - Subjektenes
-sivilstatus, om der gift eller skilt. \* sex - Subjektenes kjønn, mann
-eller kvinne. \* education - Subjektenes år med utdanning. \* afqt -
-Subjektenes poengsum i prosent på 'Armed Forces Qualification Test'
+av høyde. Variablene som er inkludert i datasettet er:
+
+-   Income - Basert på årlig inntekt, der topp to prosent er
+    representert av gjennomsnittelig verdi av de to prosentene.
+-   Height - Høyden til subjektene som har deltatt målt i inch.
+-   Weight - Vekten til subjektene som har deltatt målt i pounds.
+-   Age - Alderen til subjektene som har deltatt er mellom 47 og 56.
+-   Martial - Subjektenes sivilstatus, om der gift eller skilt.
+-   Sex - Subjektenes kjønn, mann eller kvinne.
+-   Education - Subjektenes år med utdanning.
+-   Afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification
+    Test'
 
 # EDA
 
