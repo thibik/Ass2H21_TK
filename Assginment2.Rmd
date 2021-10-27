@@ -13,7 +13,9 @@ library(tinytex)
 library(tidyverse)
 library(modelr)
 library(ggpubr)
-library(huxtable)
+
+library(car)
+library(carData)
 options(scipen = 999)
 ```
 
@@ -41,9 +43,9 @@ Se på dette senere.
 # EDA
 
 ```{r}
-#Slett dette senere?
 ggplot(data = hoyde)
 ```
+
 
 ## Lag et histogram av variablen *income*
 
