@@ -174,7 +174,7 @@ summary(hoyde_begr)
 huxreg 
 (list
   ("model1" = lm1, "model2" = lm2, "model3" = lm3),
-       error format = "[{statistic}]",
+       error_format = "[{statistic}]",
        note = "Regresjonstabell 3: {stars}.T statistics in brackets."
 )
 ```
