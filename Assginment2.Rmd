@@ -204,7 +204,7 @@ linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 
 ```{r}
 Model6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
-lm6 <- lm(Model6, data = hoyde_begr)
+lm6 <- lm(Model6, data = hoyde)
 summary(lm6)
 ```
 
