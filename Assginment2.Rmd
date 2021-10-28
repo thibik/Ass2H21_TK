@@ -6,8 +6,8 @@ output:
   html_document:
     df_print: paged
 lang: no-NB
+bibliography: references.bib
 ---
-
 
 ```{r}
 library(ggplot2)
@@ -32,7 +32,32 @@ bestemmer inntekt?".
 
 # Litteraturgjennomgang
 
-# Analyse
+Judge og Cable hevder i deres akademiske artikkel fra 2004 at høyde kan
+skape fordeler i en rekke viktige aspekter i både liv og i karriere
+[@judge2004]. Gjennom deres evalueringer med faktorene kjønn, vekt og
+alder legger de frem en teoretisk model av forholdet mellom høyde of
+inntekt [@judge2004]. Modellen forfatterne fremlegger viser blant annet
+at høyde er relatert til både utførelse og selvtillit [@judge2004]. De
+fremlegger videre at høyde i relasjon med inntekt eller
+"karrieresuksess" viste en større relasjon for menn enn for kvinner
+[@judge2004]. Siste del av forskningen utført av forfatterne, fremlegger
+at det foreligger en tydelig sammenheng mellom høyde og inntekt - hvor
+de tidligere nevnte faktorene kjønn, vekt og alder er hensyntatt
+[@judge2004]. @elikvisvik2008 hevder også i sin statistiske analyse fra
+2008 at det eksisterer en sammenheng mellom nettopp høyde og inntekt.
+Hun utrykker videre at "den høyeste fjerdedelen av den amerikanske
+befolkningen tjener 9-10% mer enn den laveste fjerdedelen (...)", hvor
+forskere begrunner dette med andre psykologiske årsaker som @judge2004
+også referer til, nemlig selvtillit [@elikvisvik2008a].
+
+Ved å bruke både dattasettet ***heights*** og gjennom argumentene
+@elikvisvik2008 og @judge2004 legger til grunn, vil vi teste påstandene
+gjennom statistikken som utføres videre i oppgaven. Ved bruk av
+datasettet og dets variabler vil vi kunne se flere aspekter relatert til
+høyde og inntekt hvor variablene vekt, kjønn, alder og utdannelse også
+vil være inkludert. Konklusjonen av oppgaven vil være basert på utfallet
+av de framlagte data, hvor vi naturligvis vil se om våre resultater
+støtter @judge2004 og @elikvisvik2008 resultater.
 
 ```{r Hoyde}
 hoyde <- heights
@@ -40,22 +65,28 @@ hoyde <- heights
 
 # Beskrivende statestikk
 
-Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av åtte variabler og 7006 observasjoner. Basert på disse variablene og observasjonene skal det være mulig å konkludere om ens inntekt bestemmes av høyde. Variablene som er inkludert i datasettet er: 
-* income - Basert på årlig inntekt, der topp to prosent er representert av gjennomsnittelig verdi av de to prosentene. 
-* height - Høyden til subjektene som har deltatt målt i inch.
-* weight - Vekten til subjektene som har deltatt målt i pounds.
-* age - Alderen til subjektene som har deltatt er mellom 47 og 56.
-* martial - Subjektenes sivilstatus, om der gift eller skilt. 
-* sex - Subjektenes kjønn, mann eller kvinne. 
-* education - Subjektenes år med utdanning. 
-* afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification Test'. 
+Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av
+åtte variabler og 7006 observasjoner. Basert på disse variablene og
+observasjonene skal det være mulig å konkludere om ens inntekt bestemmes
+av høyde. Variablene som er inkludert i datasettet er:
+
+-   Income - Basert på årlig inntekt, der topp to prosent er
+    representert av gjennomsnittelig verdi av de to prosentene.
+-   Height - Høyden til subjektene som har deltatt målt i inch.
+-   Weight - Vekten til subjektene som har deltatt målt i pounds.
+-   Age - Alderen til subjektene som har deltatt er mellom 47 og 56.
+-   Martial - Subjektenes sivilstatus, om der gift eller skilt.
+-   Sex - Subjektenes kjønn, mann eller kvinne.
+-   Education - Subjektenes år med utdanning.
+-   Afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification
+    Test'
+
 
 # EDA
 
 ```{r}
 ggplot(data = hoyde)
 ```
-
 
 ## Lag et histogram av variablen *income*
 
@@ -66,13 +97,16 @@ ggplot(data = hoyde, aes(income)) +
 
 ## Forklaringen på utliggerne langt til høyre
 
-På modellen ser man at utliggeren som i dette tilfellet er ekstremalpunktet ligger langt til høyre. Dette er på grunn av at de har blitt regnet ut et gjennomsnitt av topp to prosentene av inntektene.  
+På modellen ser man at utliggeren som i dette tilfellet er
+ekstremalpunktet ligger langt til høyre. Dette er på grunn av at de har
+blitt regnet ut et gjennomsnitt av topp to prosentene av inntektene.
 
 ## Personer uten inntekt inkludert i datasettet?
 
 ```{r}
 sum(hoyde$income == 0)
 ```
+
 Det er altså 1740 av 7006 personer som har null i inntekt.
 
 # Regresjonsanalyse
@@ -81,7 +115,7 @@ Det er altså 1740 av 7006 personer som har null i inntekt.
 hoyde <- heights
 ```
 
-## Dollar til norske kroner 
+## Dollar til norske kroner
 
 Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på 8.42.
 
@@ -91,9 +125,13 @@ hoyde <- hoyde %>%
 ```
 
 
+Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på
+8.42.
+
+
 ## Redusert datasett
 
-Vi begrenser datasettet ved å utelate personer uten inntekt og topp 2 % prosent.
+Vi begrenser datasettet ved å utelate personer med topp 2 prosent inntekt og uten inntekt. 
 
 ```{r}
 hoyde_begr <- hoyde %>%  
@@ -112,10 +150,9 @@ ggplot(data = hoyde_begr, aes(income)) +
   geom_histogram()
 ```
 
-
 ## Lag to nye variabler + lag ny variabel "bmi"
 
-Datasettet gjøres om til meterisk standard. 
+Datasettet får tre nye variabler ved å gjøre det om til meterisk standard. 
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -145,12 +182,13 @@ mutate(
   )
 ```
 
+
+
 # Minst 6 modeller
 
 ## Modell 1
 
 Modell 1 viser sammenhengen mellom variablene *inntekt* og *hoyde_cm*.
-
 
 ```{r}
 Modell1 <- "inntekt ~ hoyde_cm"
@@ -190,16 +228,14 @@ summary(lm3)
 # Huxreg
 
 ```{r}
-huxreg 
-(list
+huxreg (list
   ("model1" = lm1, "model2" = lm2, "model3" = lm3),
-       error format = "[{statistic}]",
+       error_format = "[{statistic}]",
        note = "Regresjonstabell 3: {stars}.T statistics in brackets."
 )
 ```
 
-
-# Interaksjon 
+# Interaksjon
 
 ```{r}
 Model4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
@@ -213,20 +249,19 @@ lm5 <- lm(Model5, data = hoyde)
 summary(lm4)
 ```
 
-# Test av koeffisientene 
+# Test av koeffisientene
 
 ```{r}
 linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 ```
 
-# Begrensing 
+# Begrensing
 
 ```{r}
 Model6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
-lm6 <- lm(Model6, data = hoyde_begr)
+lm6 <- lm(Model6, data = hoyde)
 summary(lm6)
 ```
-
 
 # Legge til resiudalene til datasettet
 
@@ -251,7 +286,6 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
   facet_grid(sex ~ factor(married, labels = c("not married", "married")))
 ```
 
-
 # Konklusjon
 
-
+# Kilder
