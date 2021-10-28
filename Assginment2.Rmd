@@ -48,7 +48,7 @@ Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av åtte v
 * martial - Subjektenes sivilstatus, om der gift eller skilt. 
 * sex - Subjektenes kjønn, mann eller kvinne. 
 * education - Subjektenes år med utdanning. 
-* afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification Test' 
+* afqt - Subjektenes poengsum i prosent på 'Armed Forces Qualification Test'. 
 
 # EDA
 
@@ -83,20 +83,29 @@ hoyde <- heights
 
 ## Dollar til norske kroner 
 
+Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på 8.42.
+
 ```{r}
 hoyde <- hoyde %>% 
    mutate(inntekt = income * 8.42)
-
 ```
-Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på 8.42.
+
 
 ## Redusert datasett
+
+Vi begrenser datasettet ved å utelate personer uten inntekt og topp 2 % prosent.
 
 ```{r}
 hoyde_begr <- hoyde %>%  
   filter(inntekt < 1500000,
          inntekt > 1)
 ```
+
+```{r}
+hoyde_begr <- hoyde %>% 
+   mutate(inntekt = income * 8.42)
+```
+
 
 ```{r}
 ggplot(data = hoyde_begr, aes(income)) +
@@ -106,8 +115,17 @@ ggplot(data = hoyde_begr, aes(income)) +
 
 ## Lag to nye variabler + lag ny variabel "bmi"
 
+Datasettet gjøres om til meterisk standard. 
+
 ```{r}
 hoyde <- hoyde %>% 
+  mutate(hoyde_cm = height * 2.54,
+         vekt_kg = weight * 0.454,
+         BMI = (vekt_kg/hoyde_cm)^2)
+```
+
+```{r}
+hoyde_begr <- hoyde %>% 
   mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
@@ -129,43 +147,44 @@ mutate(
 
 # Minst 6 modeller
 
+## Modell 1
+
+Modell 1 viser sammenhengen mellom variablene *inntekt* og *hoyde_cm*.
+
 
 ```{r}
-model1 <- "inntekt ~ hoyde_cm"
-lm1 <- lm(model1, data = hoyde, subset = complete.cases(hoyde)) 
+Modell1 <- "inntekt ~ hoyde_cm"
+lm1 <- lm(Modell1, data = hoyde, subset = complete.cases(hoyde)) 
 summary(lm1)
 ```
 
-
 ```{r}
-#trenger vi å ta med dette??
--1337837.4 + (9884.6 *173)
--1337837.4 + (9884.6 *161)
+# Eksempel 
+-1361001.0 + (10047.9 *173)
+-1361001.0 + (10047.9 *161)
 ```
 
+En person som er 1,73 meter høy vil tjene 377285.7 NOK og en som er 1,61 meter høy vil tjene 256710.9 NOK. Resultatet viser at den som er høyere tjener mer.
+
+## Modell 2
+
+Modell 2 viser sammenhengen mellom variabelene *inntekt*, *hoyde_cm* og *vekt_kg*.
 
 ```{r}
-Model2 <- "inntekt ~ hoyde_cm + vekt_kg" 
-lm2 <- lm(Model2, data = hoyde, subset = complete.cases(hoyde))
+Modell2 <- "inntekt ~ hoyde_cm + vekt_kg" 
+lm2 <- lm(Modell2, data = hoyde, subset = complete.cases(hoyde))
 summary(lm2)
 ```
 
-
 ```{r}
-#Må vi ta med dette??
--697374.7 + (6735.7*173) + (-691.5*70)
+# Eksempel
+-1466873.6 + (11430.3*173) + (-691.5*70)
 ```
 
 ```{r}
 Model3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
 lm3 <- lm(Model3, data = hoyde, subset = complete.cases(hoyde))
 summary(lm3)
-```
-
-
-```{r}
-# Slett denne
-summary(hoyde_begr)
 ```
 
 # Huxreg
@@ -183,7 +202,6 @@ huxreg
 # Interaksjon 
 
 ```{r}
-# Riktig, fjern denne linjen.
 Model4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
 lm4 <- lm(Model4, data = hoyde)
 summary(lm4)
