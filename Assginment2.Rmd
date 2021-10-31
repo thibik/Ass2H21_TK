@@ -116,21 +116,28 @@ hoyde <- heights
 
 ## Dollar til norske kroner
 
-```{r}
-hoyde <- hoyde %>% 
-   mutate(inntekt = income * 8.42)
-
-```
-
 Vi gjør Amerikanske dollar om til norske kroner. Valutakurens ligger på
 8.42.
 
+```{r}
+hoyde <- hoyde %>% 
+   mutate(inntekt = income * 8.42)
+```
+
 ## Redusert datasett
+
+Vi begrenser datasettene *"hoyde"* og *"hoyde_begr"* ved å utelate
+personer med topp 2 prosent inntekt og uten inntekt.
 
 ```{r}
 hoyde_begr <- hoyde %>%  
   filter(inntekt < 1500000,
          inntekt > 1)
+```
+
+```{r}
+hoyde_begr <- hoyde %>% 
+   mutate(inntekt = income * 8.42)
 ```
 
 ```{r}
@@ -140,8 +147,18 @@ ggplot(data = hoyde_begr, aes(income)) +
 
 ## Lag to nye variabler + lag ny variabel "bmi"
 
+Datasettene *"hoyde"* og *"hoyde_begr"* får tre nye variabler ved å
+gjøre det om til meterisk standard.
+
 ```{r}
 hoyde <- hoyde %>% 
+  mutate(hoyde_cm = height * 2.54,
+         vekt_kg = weight * 0.454,
+         BMI = (vekt_kg/hoyde_cm)^2)
+```
+
+```{r}
+hoyde_begr <- hoyde %>% 
   mutate(hoyde_cm = height * 2.54,
          vekt_kg = weight * 0.454,
          BMI = (vekt_kg/hoyde_cm)^2)
@@ -163,45 +180,63 @@ mutate(
 
 # Minst 6 modeller
 
+## Modell 1
+
+Modell 1 viser sammenhengen mellom variablene *inntekt* og *hoyde_cm*.
+
 ```{r}
-model1 <- "inntekt ~ hoyde_cm"
-lm1 <- lm(model1, data = hoyde, subset = complete.cases(hoyde)) 
+Modell1 <- "inntekt ~ hoyde_cm"
+lm1 <- lm(Modell1, data = hoyde, subset = complete.cases(hoyde)) 
 summary(lm1)
 ```
 
 ```{r}
-#trenger vi å ta med dette??
--1337837.4 + (9884.6 *173)
--1337837.4 + (9884.6 *161)
+# Eksempel 1
+-1361001.0 + (10047.9 *173)
+-1361001.0 + (10047.9 *161)
 ```
 
+En person som er 1,73 meter høy vil tjene 377285.7 NOK og en som er 1,61
+meter høy vil tjene 256710.9 NOK. Resultatet viser at den som er høyere
+tjener mer.
+
+## Modell 2
+
+Modell 2 viser sammenhengen mellom variabelene *inntekt*, *hoyde_cm* og
+*vekt_kg*.
+
 ```{r}
-Model2 <- "inntekt ~ hoyde_cm + vekt_kg" 
-lm2 <- lm(Model2, data = hoyde, subset = complete.cases(hoyde))
+Modell2 <- "inntekt ~ hoyde_cm + vekt_kg" 
+lm2 <- lm(Modell2, data = hoyde, subset = complete.cases(hoyde))
 summary(lm2)
 ```
 
 ```{r}
-#Må vi ta med dette??
--697374.7 + (6735.7*173) + (-691.5*70)
+# Eksempel 2
+-1466873.6 + (11430.3*173) + (-691.5*70)
+-1466873.6 + (11430.3*161) + (-691.5*70)
 ```
 
+Eksemplet viser at hoyde gir økning i inntekt og vekt gir reduksjon i
+inntekt. Et samlet resulat av funksjonen gir lønnsøkning og personen som
+er høyere enn den andre tjener mer.
+
+## Modell 3
+
+Modell 3 viser sammenhengen mellom variabelene *inntekt*, *hoyde_cm*,
+*vekt_kg* og *BMI*.
+
 ```{r}
-Model3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
-lm3 <- lm(Model3, data = hoyde, subset = complete.cases(hoyde))
+Modell3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
+lm3 <- lm(Modell3, data = hoyde, subset = complete.cases(hoyde))
 summary(lm3)
-```
-
-```{r}
-# Slett denne
-summary(hoyde_begr)
 ```
 
 # Huxreg
 
 ```{r}
 huxreg (list
-  ("model1" = lm1, "model2" = lm2, "model3" = lm3),
+  ("Modell1" = lm1, "Modell2" = lm2, "Modell3" = lm3),
        error_format = "[{statistic}]",
        note = "Regresjonstabell 3: {stars}.T statistics in brackets."
 )
@@ -209,16 +244,24 @@ huxreg (list
 
 # Interaksjon
 
+## Modell 4
+
+Modell 4 fire inneholder en interaksjon mellom variabelene *"hoyde_cm"*
+og *"sex"*.
+
 ```{r}
-# Riktig, fjern denne linjen.
-Model4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
-lm4 <- lm(Model4, data = hoyde)
+Modell4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+lm4 <- lm(Modell4, data = hoyde)
 summary(lm4)
 ```
 
+## Modell 5
+
+Modell 5 inneholder interaskjon mellom flere variabler.
+
 ```{r}
-Model5 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2)) + BMI + I(BMI^2)"
-lm5 <- lm(Model5, data = hoyde)
+Modell5 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2)) + BMI + I(BMI^2)"
+lm5 <- lm(Modell5, data = hoyde)
 summary(lm4)
 ```
 
@@ -230,9 +273,11 @@ linearHypothesis(lm4, c("sexfemale = 0", "sexfemale:hoyde_cm = 0"))
 
 # Begrensing
 
+## Modell 6
+
 ```{r}
-Model6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
-lm6 <- lm(Model6, data = hoyde)
+Modell6 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
+lm6 <- lm(Modell6, data = hoyde_begr)
 summary(lm6)
 ```
 
