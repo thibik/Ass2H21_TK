@@ -309,6 +309,6 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
 Selv om både @judge2004 og @elikvisvik2008 har gode argumenter for
 sammenhengen mellom høyde og inntekt, viser statistikken utført at vi
 burde inkludere flere variabler for å kunne konkludere med en difinitiv
-sammenheng for om det er høyde som bestemmer inntekt.
+sammenheng for om det er høyde som bestemmer inntekt. 
 
 # Kilder
