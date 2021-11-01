@@ -309,6 +309,6 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
 Selv om både @judge2004 og @elikvisvik2008 har gode argumenter for
 sammenhengen mellom høyde og inntekt, viser statistikken utført at vi
 burde inkludere flere variabler for å kunne konkludere med en difinitiv
-sammenheng for om det er høyde som bestemmer inntekt. test 
+sammenheng for om det er høyde som bestemmer inntekt. Dette kan forstås bedre ved å lese av den siste grafen som viser at gifte kvinner som er 150 cm og ca. 180 cm høye tjener omtrent det samme.
 
 # Kilder
