@@ -9,16 +9,21 @@ lang: no-NB
 bibliography: references.bib
 ---
 
-```{r}
-library(ggplot2)
-library(tinytex)
-library(tidyverse)
-library(modelr)
-library(ggpubr)
-library(huxtable)
-library(car)
-library(carData)
-options(scipen = 999)
+```{r setup, echo = FALSE}
+suppressPackageStartupMessages(
+  c(library(ggplot2),
+    library(tinytex),
+    library(tidyverse),
+    library(modelr),
+    library(ggpubr),
+    library(huxtable),
+    library(car),
+    library(carData)
+    )
+)
+# Vil anbefaøe 7, 999 blir litt i meste laget
+#options(scipen = 999)
+options(scipen = 7)
 ```
 
 # Kort innledning
