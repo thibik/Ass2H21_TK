@@ -6,45 +6,49 @@ output:
   html_document:
     df_print: paged
 lang: no-NB
-bibliography: references.bib
+bibliography: [references.bib, ag.bib]
 ---
 
 ```{r setup, echo = FALSE}
+# Slipper alle meldingene fra pakkene som lastes
 suppressPackageStartupMessages(
-  c(library(ggplot2),
-    library(tinytex),
-    library(tidyverse),
-    library(modelr),
-    library(ggpubr),
-    library(huxtable),
-    library(car),
+  {
+    library(ggplot2)
+    library(tinytex)
+    library(tidyverse)
+    library(modelr)
+    library(ggpubr)
+    library(huxtable)
+    library(car)
     library(carData)
-    )
+  }
 )
-# Vil anbefaøe 7, 999 blir litt i meste laget
+# Vil anbefale 7, 999 blir litt i meste laget ;-)
 #options(scipen = 999)
 options(scipen = 7)
 ```
 
 # Kort innledning
 
-Vi vil i denne oppgaven bruke datasettet ***heights*** for å undersøke riktigheten av påstanden om at høyde bestemmer inntekt.
+Vi vil i denne oppgaven bruke datasettet ***heights***[^1] for å undersøke riktigheten av påstanden om at høyde bestemmer inntekt.
 Undersøkelsen vil bli gjort gjennom analyser av ulike variabler og ved regresjonsanalyser.
 Resultatene vil bli fremstilt i ulike modeller, før vi vil avslutte med en konklusjon av spørsmålet "er det høyde som bestemmer inntekt?".
 
+[^1]: Fra R-pakken *modelr* [@modelr] kjørt under statistikk systemet R [@Rcore].
+
 # Litteraturgjennomgang
 
-Judge og Cable hevder i deres akademiske artikkel fra 2004 at høyde kan skape fordeler i en rekke viktige aspekter i både liv og i karriere [@judge2004].
-Gjennom deres evalueringer med faktorene kjønn, vekt og alder legger de frem en teoretisk model av forholdet mellom høyde of inntekt [@judge2004].
-Modellen forfatterne fremlegger viser blant annet at høyde er relatert til både utførelse og selvtillit [@judge2004].
-De fremlegger videre at høyde i relasjon med inntekt eller "karrieresuksess" viste en større relasjon for menn enn for kvinner [@judge2004].
-Siste del av forskningen utført av forfatterne, fremlegger at det foreligger en tydelig sammenheng mellom høyde og inntekt - hvor de tidligere nevnte faktorene kjønn, vekt og alder er hensyntatt [@judge2004].
+@judge2004a hevder at høyde kan skape fordeler i en rekke viktige aspekter i både liv og i karrière.
+Gjennom deres evalueringer med faktorene kjønn, vekt og alder legger de frem en teoretisk model av forholdet mellom høyde of inntekt.
+Modellen forfatterne fremlegger viser blant annet at høyde er relatert til både utførelse og selvtillit.
+De fremlegger videre at høyde i relasjon med inntekt eller «karriéresuksess» viste en større relasjon for menn enn for kvinner.
+Siste del av forskningen utført av forfatterne, fremlegger at det foreligger en tydelig sammenheng mellom høyde og inntekt - hvor de tidligere nevnte faktorene kjønn, vekt og alder er hensyntatt.
 @elikvisvik2008 hevder også i sin statistiske analyse fra 2008 at det eksisterer en sammenheng mellom nettopp høyde og inntekt.
-Hun utrykker videre at "den høyeste fjerdedelen av den amerikanske befolkningen tjener 9-10% mer enn den laveste fjerdedelen (...)", hvor forskere begrunner dette med andre psykologiske årsaker som @judge2004 også referer til, nemlig selvtillit [@elikvisvik2008a].
+Hun uttrykker videre at «den høyeste fjerdedelen av den amerikanske befolkningen tjener 9-10% mer enn den laveste fjerdedelen (...)», hvor forskere begrunner dette med andre psykologiske årsaker som @judge2004 også referer til, nemlig selvtillit [@elikvisvik2008a].
 
-Ved å bruke både dattasettet ***heights*** og gjennom argumentene @elikvisvik2008 og @judge2004 legger til grunn, vil vi teste påstandene gjennom statistikken som utføres videre i oppgaven.
+Ved å bruke både datasettet *heights* og gjennom argumentene @elikvisvik2008 og @judge2004 legger til grunn, vil vi teste påstandene gjennom statistiske tester som utføres videre i oppgaven.
 Ved bruk av datasettet og dets variabler vil vi kunne se flere aspekter relatert til høyde og inntekt hvor variablene vekt, kjønn, alder og utdannelse også vil være inkludert.
-Konklusjonen av oppgaven vil være basert på utfallet av de framlagte data, hvor vi naturligvis vil se om våre resultater støtter @judge2004 og @elikvisvik2008 resultater.
+Konklusjonen av oppgaven vil være basert på utfallet av de framlagte data, hvor vi naturligvis vil se om våre resultater støtter resultatene fra @judge2004 og @elikvisvik2008.
 
 ```{r Hoyde}
 hoyde <- heights
@@ -52,7 +56,7 @@ hoyde <- heights
 
 # Beskrivende statestikk
 
-Datasettet 'Heights' som har fått navnet 'hoyde' består opprinnelig av åtte variabler og 7006 observasjoner.
+Datasettet *Heights* som har fått navnet *hoyde* består opprinnelig av åtte variabler og 7006 observasjoner.
 Basert på disse variablene og observasjonene skal det være mulig å konkludere om ens inntekt bestemmes av høyde.
 Variablene som er inkludert i datasettet er:
 
@@ -67,15 +71,30 @@ Variablene som er inkludert i datasettet er:
 
 # EDA
 
-```{r}
-ggplot(data = hoyde)
-```
-
-## Lag et histogram av variablen *income*
+## Histogram av variabelen *income*
 
 ```{r}
 ggplot(data = hoyde, aes(income)) +
-  geom_histogram()
+  # satt inn bins=30 for å slippe warning
+  geom_histogram(bins=30)
+```
+
+## Histogram av *income* fordelt på kjønn
+
+```{r}
+# For gjort å lage facet på kjønn
+ggplot(data = hoyde, aes(income)) +
+  facet_wrap(~sex) +
+  geom_histogram(bins=30)
+```
+
+## Histogram av *ln(income+1)* fordelt på kjønn
+
+```{r}
+# For gjort å lage ln tranformasjon og facet på kjønn
+ggplot(data = hoyde, aes(log(income+1))) +
+  facet_wrap(~sex) +
+  geom_histogram(bins=30)
 ```
 
 ## Forklaringen på utliggerne langt til høyre
@@ -92,10 +111,6 @@ sum(hoyde$income == 0)
 Det er altså 1740 av 7006 personer som har null i inntekt.
 
 # Regresjonsanalyse
-
-```{r}
-hoyde <- heights
-```
 
 ## Dollar til norske kroner
 
@@ -122,14 +137,14 @@ hoyde_begr <- hoyde %>%
    mutate(inntekt = income * 8.42)
 ```
 
-```{r}
-ggplot(data = hoyde_begr, aes(income)) +
-  geom_histogram()
+```{r, eval = FALSE, echo = FALSE}
+# ggplot(data = hoyde_begr, aes(income)) +
+#   geom_histogram(bins=30)
 ```
 
-## Lag to nye variabler + lag ny variabel "bmi"
+## Lag to nye variabler + lag ny variabel *bmi*
 
-Datasettene *"hoyde"* og *"hoyde_begr"* får tre nye variabler ved å gjøre det om til meterisk standard.
+Datasettene *hoyde* og *hoyde_begr* får tre nye variabler ved å gjøre det om til metrisk standard.
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -145,7 +160,7 @@ hoyde_begr <- hoyde %>%
          BMI = (vekt_kg/hoyde_cm)^2)
 ```
 
-## Forenklet utgave av variabelen "Martial"
+## Forenklet utgave av variabelen *Martial*
 
 ```{r}
 hoyde <- hoyde %>% 
@@ -159,7 +174,7 @@ mutate(
   )
 ```
 
-# Minst 6 modeller
+# Seks ulike regresjonsmodeller
 
 ## Modell 1
 
@@ -182,7 +197,7 @@ Resultatet viser at den som er høyere tjener mer.
 
 ## Modell 2
 
-Modell 2 viser sammenhengen mellom variabelene *inntekt*, *hoyde_cm* og *vekt_kg*.
+Modell 2 viser sammenhengen mellom variablene *inntekt*, *hoyde_cm* og *vekt_kg*.
 
 ```{r}
 Modell2 <- "inntekt ~ hoyde_cm + vekt_kg" 
@@ -196,12 +211,12 @@ summary(lm2)
 -1466873.6 + (11430.3*161) + (-691.5*70)
 ```
 
-Eksemplet viser at hoyde gir økning i inntekt og vekt gir reduksjon i inntekt.
-Et samlet resulat av funksjonen gir lønnsøkning og personen som er høyere enn den andre tjener mer.
+Eksemplet viser at *hoyde* gir økning i inntekt og vekt gir reduksjon i inntekt.
+Et samlet resultat av funksjonen gir lønnsøkning og personen som er høyere enn den andre tjener mer.
 
 ## Modell 3
 
-Modell 3 viser sammenhengen mellom variabelene *inntekt*, *hoyde_cm*, *vekt_kg* og *BMI*.
+Modell 3 viser sammenhengen mellom variablene *inntekt*, *hoyde_cm*, *vekt_kg* og *BMI*.
 
 ```{r}
 Modell3 <- "inntekt ~ hoyde_cm + vekt_kg + BMI" 
@@ -223,7 +238,7 @@ huxreg (list
 
 ## Modell 4
 
-Modell 4 fire inneholder en interaksjon mellom variabelene *"hoyde_cm"* og *"sex"*.
+Modell 4 fire inneholder en interaksjon mellom variablene *"hoyde_cm"* og *"sex"*.
 
 ```{r}
 Modell4 <- "inntekt ~ sex*hoyde_cm + vekt_kg + I(vekt_kg^2) + BMI + I(BMI^2)"
@@ -233,12 +248,12 @@ summary(lm4)
 
 ## Modell 5
 
-Modell 5 inneholder interaskjon mellom flere variabler.
+Modell 5 inneholder interaksjon mellom flere variabler.
 
 ```{r}
 Modell5 <- "inntekt ~ sex*(hoyde_cm + vekt_kg + I(vekt_kg^2)) + BMI + I(BMI^2)"
 lm5 <- lm(Modell5, data = hoyde)
-summary(lm4)
+summary(lm5)
 ```
 
 # Test av koeffisientene
@@ -257,7 +272,7 @@ lm6 <- lm(Modell6, data = hoyde_begr)
 summary(lm6)
 ```
 
-# Legge til resiudalene til datasettet
+# Legge til residualene til datasettet
 
 ```{r}
 # Bruk verdiene fra begrenset datasett
@@ -267,7 +282,7 @@ hoyde_begr %>%
   head(n=10)
 ```
 
-# Plot av samtilige observasjoner
+# Plot av samtlige observasjoner
 
 ```{r}
 ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
@@ -280,9 +295,71 @@ ggplot(data = hoyde_begr, mapping = aes(x = hoyde_cm, y = inntekt)) +
   facet_grid(sex ~ factor(married, labels = c("not married", "married")))
 ```
 
+## Modell 7 på redusert datasett
+
+```{r}
+mod7 <- 'sqrt(income) ~ sex*(education + afqt + age + married)'
+lm7 <- hoyde %>% 
+  filter(income >0, income < 300000) %>% 
+  filter(complete.cases(.) == TRUE) %>% 
+  lm(mod7, data = .)
+```
+
+```{r}
+summary(lm7)
+```
+
+Bør *age* være med i modellen?
+
+```{r}
+# robyst standard errors
+linearHypothesis(
+  lm7, 
+  c("age = 0", "sexfemale:age"),
+  white.adjust = "hc3"
+  )
+```
+
+Ser at vi ikke kan forkaste H0 om at *age* koeffisientene er lik 0.
+Bør derfor trolig droppe *age* fra modellen.
+
+```{r}
+mod8 <- 'sqrt(income) ~ sex*(education + afqt + married)'
+lm8 <- hoyde %>% 
+  filter(income >0, income < 300000) %>% 
+  filter(complete.cases(.) == TRUE) %>% 
+  lm(mod8, data = .)
+```
+
+```{r}
+# robust standard errors
+lmtest::coeftest(
+  lm8,
+  vcov = sandwich::vcovHC, type = "HC3"
+)
+```
+
+Sjekker om det er noen sammenheng mellom residualene (uforklarte forskjeller i inntekt) og hoyde i centimeter.
+
+```{r}
+res_lm8 <- residuals(lm8)
+
+hoyde %>% 
+  filter(income >0, income < 300000) %>% 
+  filter(complete.cases(.) == TRUE) %>%
+  ggplot(mapping = aes(x = hoyde_cm, y = res_lm8)) +
+  facet_wrap(sex~married) +
+  geom_point(size = 0.3, alpha = 0.3) +
+  geom_smooth(formula = "y ~ x", method = "lm", se = FALSE)
+```
+
+Justerer vi for kjente faktorer som kjønn, utdanning, evner og sivilstatus ser det ikke ut til å være noen som helst sammenheng mellom høyde og inntekt.
+Dette gjelder for grupene gifte/ugifte menn og gifte/ugifte kvinner.
+Det kan selvsagt tenkes at det finnes undergrupper hvor høyde har betydning for inntekt, men å avgjøre om dette er tilfelle vil kreve nærmere undersøkelser.
+
 # Konklusjon
 
-Selv om både @judge2004 og @elikvisvik2008 har gode argumenter for sammenhengen mellom høyde og inntekt, viser statistikken utført at vi burde inkludere flere variabler for å kunne konkludere med en difinitiv sammenheng for om det er høyde som bestemmer inntekt.
+Selv om både @judge2004 og @elikvisvik2008 har gode argumenter for sammenhengen mellom høyde og inntekt, viser statistikken utført at vi burde inkludere flere variabler for å kunne konkludere med en definitiv sammenheng for om det er høyde som bestemmer inntekt.
 Dette kan forstås bedre ved å lese av den siste grafen som viser at gifte kvinner som er 150 cm og ca.
 180 cm høye tjener omtrent det samme.
 
