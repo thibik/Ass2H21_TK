@@ -1,0 +1,31 @@
+---
+title: "AG comments"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+-   Reproduserbar som både html og pdf på første forsøk. Flott!
+
+-   La inn en fotnote med referanse til modelr og R. Får referanseinformasjon i bibtex format med kommandoene `citation()` for R og `citation(modelr)` i Console. Så bare å kopiere å lime inn i en ekstra .bib fil (ag.bib). Se YAML header for hvordan man kan ha flere .bib filer. Kan selvsagt også importere referansene inn i Zotero.
+
+-   Fin litteraturgjennomgang. Se hvordan jeg har endret første setning. Siterings/referanse systemet gjør at vi kan «gå rett på». Se også siste setning. Slik dere hadde skrevet det skulle der egentlig ha vært en genitivs «s».
+
+-   Har også endret til norske anførselstegn (alt+shift+v og alt+shift+b på mac tastaturet). Når vi har dem lett tilgjengelig kan vi jo bruke dem.
+
+-   Har endret navnene Heights og hoyde fra enkle engelske anførselstegn til *kursiv* som jeg tror er riktig etter norsk tradisjon.
+
+-   EDA-en var vel kortfattet :-) Har lagt inn to varianter til for å vise hvor fort gjort det er å utvide analysen.
+
+-   Under Regresjonsanalyse starter dere med `hoyde <- heights`. Tatt vekk siden unødvendig. `hoyde` er alt laget.
+
+-   Dere lager et nytt redusert datasett `hoyde_begr`. Helt OK, men jeg vil heller anbefale å lage nye variabler etc. i `hoyde` og så bruke filter i en pipe for å lage redusert datasett. Mindre arbeid, mer fleksibelt og mer robust mot feil siden bare ett datasett.
+
+-   «Alle» har vært opptatt av å konvertere fra US dollar til NOK. OK, men jeg ser ikke hensikten.
+
+-   Histogram av inntekt i NOK gir vel ikke så mye ny innsikt?
+
+-   Under overskriften «Lag to nye variabler + lag ny variabel *bmi»* ser en konsekvensen av å lage et nytt redusert datasett. Dobbelt så mye arbeid og dobbelt så mye å holde styr på.
+
+-   Har lagt inn forslag omen modell mot slutten (min favoritt ;-)) og også forsøkt å vise hvordan man utfører analysen med standard error som er robust mot heteroskedastisitet i R.
